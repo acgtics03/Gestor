@@ -1,9 +1,9 @@
-<?php 
-	
+<?php
+
 $alert = '';
 //VARIABLE DE SESION
 session_start();
- 
+
 	//Establecemos el método GET
 	if(!empty($_POST))
 	{
@@ -21,18 +21,18 @@ session_start();
 
 			//md5 es utilizado para encriptar el registro de la clave del usuario
 			$pass = $_POST['clave'];
-			
+
 
            $consulta_dni = mysqli_query($conection, "SELECT idusuario as user FROM persona WHERE dni='$user'");
     	   $ver_usuario = mysqli_fetch_assoc($consulta_dni);
-    
+
     	   $usern = $ver_usuario['user'];
 
 
 			//Se generá la consulta a la base de datos del mismo que se tendrá por lo general siempre 1 registro
 			$query = mysqli_query($conection,"SELECT * FROM usuario WHERE usuario= '$usern' AND clave = '$pass' AND estatus = 'Activo'");
 		    //Se cierra la conexion
-		
+
 			//Se crea una nueva variable que tendra el total de filas de los registros encontrados en el $query
 			$result = mysqli_num_rows($query);
 
@@ -50,11 +50,11 @@ session_start();
 
 			//header('location: menu.html');
 
-                 
-        			if($_SESSION['idPerfil'] == '2'){  
+
+        			if($_SESSION['idPerfil'] == '2'){
         				header('location: Modulos/SelectorIni.php');
         				}
-        			if($_SESSION['idPerfil'] == '3' || $_SESSION['idPerfil'] == '4'){  
+        			if($_SESSION['idPerfil'] == '3' || $_SESSION['idPerfil'] == '4'){
 					//header('location: Modulos/SelectorAdmin.php');
 					header('location: Modulos/SelectorAdmin.php');
 		        		}
@@ -64,7 +64,7 @@ session_start();
 					header('location: Modulos/SelectorAdmin.php');
         				}
 				}else{
-				   
+
                     $query2 = mysqli_query($conection,"SELECT me.motivo as motiv FROM usuario u, motivoestado me WHERE u.MotivoEstado=me.idME AND u.usuario= '$user' AND u.estatus = 'Inactivo'");
                     $result2 = mysqli_num_rows($query2);
                     $mostrar = mysqli_fetch_assoc($query2);
@@ -76,7 +76,7 @@ session_start();
 					$alert = ' Usuario o clave incorrectos';
 
 					//final de la sesión
-					session_destroy();	
+					session_destroy();
                    }
 			}
 	}
@@ -95,14 +95,14 @@ session_start();
 	<section id="container">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<form action="" method="post">
-			
+
 			<h3></h3>
 			<img src="img/icon.png" alt="Login" style="width: 40%; height: 40%">
 
 			<input type="text" name="usuario" placeholder="Usuario">
 			<input type="password" name="clave" placeholder="Contraseña">
 			 <div class="alert"><?php echo isset($alert) ? $alert : ''; ?></div>
-            
+
 			<input type="submit" value="INGRESAR">
 
 			<!--<a href="Modulos/ValidarCuenta.php" style="color: blue;">
@@ -111,7 +111,7 @@ session_start();
 			<a href="Modulos/RegistroCuenta.php" style="color: blue;">
 			    <h2>Registrate</h2>
             </a>
-            <a href="../"><img src="../images/mp.png" width="35px" height="35px"></a>
+            <a href="../"><img src="img/mp.png" width="35px" height="35px"></a>
 		</form>
 
 	</section>
