@@ -4,8 +4,8 @@
 
     $NOM_APP_1 = "Actividades";
     $NOM_APP_2 = "Asistencia";
-    $HOST = "http://localhost/Gestor2/";
-    $HOST_ACT = "http://localhost/Gestor2/AppActividades/";
+    $HOST = "http://localhost/Gestor/";
+    $HOST_ACT = "http://localhost/Gestor/AppActividades/";
 
     /*$HOST = "https://acg-soft.com/ti/extranet/";
     $HOST_ACT = "https://acg-soft.com/ti/extranet/Gestor/AppActividades/";*/
