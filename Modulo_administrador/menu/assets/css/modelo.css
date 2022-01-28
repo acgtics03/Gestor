@@ -1,0 +1,57 @@
+.acceso{
+    color: rgba(14, 119, 18, 0.973); 
+    cursor: pointer; 
+    font-weight: bold; 
+    font-size: 22px;
+    text-decoration: none;
+}
+.acceso2{
+    color: rgba(6, 125, 161, 0.973); 
+    cursor: pointer; 
+    font-weight: bold; 
+    font-size: 22px;
+    text-decoration: none;
+}
+.acceso3{
+    color: rgba(151, 42, 34, 0.973); 
+    cursor: pointer; 
+    font-weight: bold; 
+    font-size: 22px;
+    text-decoration: none;
+}
+.descripcion{
+    color: rgba(32, 65, 34, 0.973); 
+    font-size: 15px;
+}
+.descripcion2{
+    color: rgba(1, 51, 66, 0.973);
+    font-size: 15px;
+}
+.descripcion3{
+    color: rgba(83, 1, 1, 0.973);
+    font-size: 15px;
+}
+.image{
+    width: 120px; 
+    height: 120px;
+}
+.cabecera{
+    text-align: left; 
+    background-color: rgb(0, 24, 70);
+}
+.logo{
+    width: 180px; 
+    height: 50px;
+}
+.titulo{
+    font-size: 30px;
+    color: rgb(0, 24, 70);
+    font-weight: bold;
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif, Helvetica, sans-serif;
+    top: 20%;
+}
+.head{
+    background-color: rgba(209, 209, 209, 0.863);
+    height: 60px;
+}

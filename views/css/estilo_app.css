@@ -1,0 +1,168 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+body{
+     background: brown;	
+}
+.titulo-h{
+	font-family: 'Arial';
+	font-size: 12pt;
+	letter-spacing: 1px;
+	width: 100%;
+	background: #E9BE40;
+	padding: 10px;
+	color: #FFF;
+	text-align: center;
+	text-transform: uppercase;
+	
+}
+p{
+	color: white;
+	text-align: left;
+	padding: 20px;
+}
+h2{
+    font-family: Arial;
+    font-size: 14px;
+    text-align: center;
+}
+h4{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	text-align: center;
+}
+h5{
+    font-family: 'Arial';
+	font-size: 16pt;
+	letter-spacing: 1px;
+	width: 100%;
+	background: #E9BE40;
+	padding: 15px;
+	color: #FFF;
+	text-align: center;
+	text-transform: uppercase;
+}
+#container{
+	background-size: cover;
+	background-image: url(../img/fondo.jpg);
+	max-width:100%;
+	height: 100vh;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+#container form iframe{
+	width: 95%;
+}
+#container form{
+	background: rgba(255, 255, 255, 0.493);
+	width: 350px;
+	padding: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	text-align: center;
+}
+
+#container form img{
+	margin: 15px auto;
+	text-align: center;
+	display: block;
+}
+#container form input{
+	width: 90%;
+	padding: 5px;
+	font-size: 14pt;
+	display: block;
+	margin: 25px auto;
+	border-radius: 5px;
+	border: 1px solid  #85929e;
+	text-align: center;
+}
+
+#container form input[type="date"]{
+	padding: 10px;
+	letter-spacing: 1px;
+	border: 0;
+    cursor: pointer;
+	width: 50%;
+	font-size: 16pt;
+}
+
+.alert{
+	font-family: 'Arial';
+	font-size: 16px;
+	text-align: center;
+	background-color: #001843;
+	color:#FFC931;
+}
+
+#scroll_tabla{
+	overflow-y: auto;
+	overflow-x: hidden;
+    height:150px;
+}
+
+#pie{
+	width: auto;
+	text-align: left;
+	display: flex;
+	justify-content: space-between;
+	margin: auto;
+
+}
+table tr:hover {
+	background-color: #FFC931;;
+	cursor: pointer;
+  }
+
+.logo_acceso{
+	width: 40%; 
+	height: 40%
+}
+
+.ruta_reg{
+	color: rgb(21, 61, 122);
+	font-weight: bold;
+	font-size: 16px;
+	font-family: Arial, Helvetica, sans-serif;
+	
+}
+
+.exit{
+	background-color: Transparent;
+	border: none;
+}
+
+.close{
+	text-align: center;
+}
+
+.pie-1-position{
+	font-size: 11.5px;
+	margin-left: 4%;
+	color: rgb(0, 0, 49);
+}
+
+.pie-2-position{
+	font-size: 12px;
+	margin-right: 4%;
+	color: rgb(0, 0, 49);
+}
+
+.tb{
+	-webkit-border-radius: 28;
+	-moz-border-radius: 28;
+	height: 60px;
+	border-radius: 6px; 
+}
+
+#btnAsistencia, #btnVisitas, #btnActividades, #btnControl, #btnOperativo, #btnAdmin{
+	border-radius: 6px;
+	padding: 16px 24px;  
+}

@@ -1,0 +1,230 @@
+*{
+    margin: 0px;
+    padding:0px;
+    font-family: Arial;
+    color: #000000;
+}
+
+/*PARÁMETRO DE CABECERA*/
+#botones{
+    background-color: #FFC931;
+    margin: 0px;
+    display: block;
+    padding: 10px;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+/*PARÁMETROS DE MENÚ LATERAL*/
+#menu{
+    position: absolute;
+    width: 245px;
+    height: 577px;
+    background-color: #FFC931;
+}
+
+#icono{
+    margin-right: 3%;
+}
+
+#menu nav ul li ul li a img{
+    transform: rotate(90deg);
+    width: 5%;
+    height: 5%;
+    margin-right: 3%;
+}
+
+#menu nav ul{
+    list-style: none;
+    margin: 0;
+    margin-left: -3%;
+}
+
+#menu nav ul li{
+    padding: 20px;
+    position: relative;
+    width: 210px;
+    background-color: #FFC931;
+    border-top: 1px solid #ffffff;
+    cursor: pointer;
+}
+
+#menu nav ul ul{
+    transition: all 0.3s;
+    opacity: 0;
+    position: absolute;
+    visibility: hidden;
+    left: 103%;
+    top: -0%;
+}
+
+#menu nav ul li a{
+    display: block;
+}
+
+#menu nav ul li:hover > ul{
+    opacity: 1;
+    visibility: visible;
+}
+
+#menu nav ul li:hover{
+    background-color: lightgray;
+    width: 210px;
+}
+
+#menu nav ul li a{
+    color: #000000;
+    text-decoration: none;
+    margin-left: 8%;
+}
+
+/*PARÁMETROS DEL CUERPO DE LA VISTA*/
+#cuerpo{
+    margin-left: 260px;
+}
+
+/*PARÁMETROS GENERALES DE LA TABLA*/
+#tabla{
+    border-top:1px solid #000000;
+    border-bottom:1px solid #000000;
+    font-family: Arial;
+    font-size:95%;
+    border-collapse:collapse;
+}
+
+/*PARÁMETROS GENERAL DEL ENCABEZADO DE LA TABLA*/
+#thead{
+    border-bottom: 1px solid #000000;
+    display: block;
+}
+
+#tr0{
+    height: 30px;
+    background-color: #001843;
+    color: #ffffff;
+}
+
+/*PARÁMETROS DE LAS CEDAS DEL ENCABEZADO DE LA TABLA*/
+#th1{
+    width: 100px;
+    text-align: center;
+    color: #ffffff;
+}
+
+#th2{
+    width: 150px;
+    text-align: center;
+    color: #ffffff;
+}
+
+#th3{
+    width: 100px;
+    text-align: center;
+    color: #ffffff;
+}
+
+#th4{
+    width: 30px;
+    text-align: center;
+    color: #ffffff;
+}
+
+#th5{
+    width: 30px;
+    text-align: center;
+    color: #ffffff;
+}
+
+#th6{
+    width: 200px;
+    text-align: center;
+    color: #ffffff;
+}
+
+#th7{
+    width: 200px;
+    text-align: center;
+    color: #ffffff;
+}
+
+/*PARÁMETROS GENERAL DEL CUERPO DE LA TABLA*/
+#tbody{
+    display: block;
+}
+
+#tr1{
+    height: 40px;
+    width: auto;
+    margin-top: 10px;
+}
+
+/*PARÁMETROS DE LAS CEDAS DEL CUERPO DE LA TABLA*/
+#td1{
+    width: 100px;
+    text-align: center;
+}
+
+#td2{
+    width: 150px;
+    text-align: center;
+}
+
+#td3{
+    width: 100px;
+    text-align: center;
+}
+
+#td4{
+    width: 30px;
+    text-align: center;
+}
+
+#td5{
+    width: 30px;
+    text-align: center;
+}
+
+#td6{
+    width: 200px;
+    text-align: center;
+}
+
+#td7{
+    width: 200px;
+    text-align: center;
+}
+
+/*tr:nth-child(2n) {
+    background: none repeat scroll 0 0 #edebeb;
+}*/
+
+/*PARÁMETROS DEL SCROLL DE LA TABLA*/
+#scroll_tabla{
+overflow-y: scroll;
+overflow-x: hidden;
+}
+
+/*PARÁMETRO DE CAMPO DE CONTROL DE REGISTROS DE ASISTENCIA*/
+/*GENERAL*/
+#nregistros{
+    margin-top: 20px;
+    /*margin-left:100px;
+    font-family: Arial;*/
+    font-size: 15px;
+}
+
+/*PARÁMETRO DE LABELS*/
+#label_registros{
+    font-weight: bold;
+}
+
+#titulo_vista{
+    font-size: 25px; 
+    font-weight: bold;
+}
+
+/*PARÁMETRO DE INPUTS*/
+#input_registros{
+    width: 45px;
+}

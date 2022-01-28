@@ -1,0 +1,276 @@
+
+.iconproy{
+    width: 30px;
+    height: 30px;
+}
+
+.filast{
+    font-size: 12px;
+}
+.filastt{
+    font-size: 14px;
+}
+
+.titulos_super{
+    font-size: 18px;
+    text-align: center;
+    background-color: rgb(1, 1, 61);
+}
+.btnreport{
+    background-color: rgb(7, 33, 180);
+    border-color: rgb(7, 33, 180);
+}
+
+.fondo{
+    background-color: rgb(241, 241, 234);
+}
+.indicadores{
+    background-color: rgb(133, 133, 133);
+}
+
+.highcharts-figure, .highcharts-data-table table {
+    min-width: 310px; 
+    max-width: 800px;
+    margin: 1em auto;
+}
+.tabla-r{
+    overflow-y: auto;
+    height:210px;
+}
+.tabla-t{
+    overflow-y: auto;
+	overflow-x: hidden;
+    height: 642px;
+}
+
+.filtros{
+    border-radius: 12px 12px 12px 12px;
+    height: 35px;
+}
+
+.graf-1{
+    background-color: rgb(255, 255, 255);
+    height: 750px;
+}
+.graf-11{
+    background-color: rgb(255, 255, 255);
+}
+.divgraf1{
+    background-color: rgb(143, 16, 16);
+}
+.div1graf1{
+    background-color: white;
+}
+.tabgraf1{
+    background-color: rgb(156, 90, 90);
+}
+
+
+.graf-2{
+    background-color: rgb(255, 255, 255);
+}
+.divgraf2{
+    background-color: rgb(2, 133, 31);
+}
+.div2graf2{
+    background-color: white;
+}
+.tabgraf2{
+    background-color: rgb(122, 223, 127);
+}
+
+
+.graf-3{
+    background-color: rgb(255, 255, 255);
+}
+.divgraf3{
+    background-color: rgb(7, 33, 180);
+}
+.div3graf3{
+    background-color: white;
+}
+.tabgraf3{
+    background-color: rgb(27, 89, 182);
+}
+
+
+.graf-4{
+    background-color: rgb(255, 255, 255);
+}
+.divgraf4{
+    background-color: black;
+}
+.div4graf4{
+    background-color: white;
+}
+.tabgraf4{
+    background-color: rgb(30, 34, 41);
+}
+
+
+
+.tabtext{
+    color: black;
+}
+
+.tab4-header{
+    background-color: rgb(1, 1, 61);
+}
+.tab4-thead{
+    background-color: rgba(0, 0, 41, 0.562);
+}
+.tab4-fond{
+    background-color: white;
+}
+
+
+#container {
+    height: 200px;
+}
+#container2 {
+    height: 200px;
+}
+#container3 {
+    height: 200px;
+}
+
+#container4 {
+    height: 200px;
+}
+
+.highcharts-data-table table {
+	font-family: Verdana, sans-serif;
+	border-collapse: collapse;
+	border: 1px solid #EBEBEB;
+	margin: 10px auto;
+	text-align: center;
+	width: 100%;
+	max-width: 500px;
+}
+.highcharts-data-table caption {
+    padding: 1em 0;
+    font-size: 1.2em;
+    color: #555;
+}
+.highcharts-data-table th {
+	font-weight: 600;
+    padding: 0.5em;
+}
+.highcharts-data-table td, .highcharts-data-table th, .highcharts-data-table caption {
+    padding: 0.5em;
+}
+.highcharts-data-table thead tr, .highcharts-data-table tr:nth-child(even) {
+    background: #f8f8f8;
+}
+.highcharts-data-table tr:hover {
+    background: #f1f7ff;
+}
+
+.h-div{
+  background-color: rgb(0, 44, 85);
+}
+
+.reg-fond{
+    background-color: rgb(91, 132, 170);
+}
+.reg-tab{
+    background-color: rgb(126, 126, 126);
+}
+.reg-tab2{
+    background-color: rgb(91, 132, 170);
+}
+.btnRegistrar{
+    background-color: rgb(4, 56, 124);
+
+}
+.centrar{
+    text-align: center;
+}
+.titulo{
+    color: black;
+    font-size: 12px;
+}
+.cam-fecha{
+    width: 170px;
+    font-size: 12px;
+}
+.cam-empresa{
+    width: 250px;
+}
+.combo-box{
+    width: 170px;
+    background-color: white;
+}
+.ach{
+    width: 400px;
+}
+.t-titulo{
+    font-size: 16px;
+    font-weight: bold;
+    color: black;
+}
+.c-campos{
+    width: 360px;
+}
+.f-box{
+    background-color: white;
+    color: black;
+}
+.f-2-box{
+    background-color: rgba(179, 179, 179, 0.651);
+    color: black;
+}
+.font{
+    color: rgb(155, 35, 35);
+    font-weight: bold;
+}
+.cam-hora{
+    width: 180px;
+}
+
+.btneliminar{
+    background-color: rgb(158, 19, 19);  
+    border-color: black;
+    text-align: rigth;
+}
+.rutas{
+    color: white;
+}
+.btn-1{
+    color: white;
+    background-color: rgb(7, 33, 180);
+    width: 300px;
+    border-radius: 14px 14px 14px 14px;
+}
+
+.btn-2{
+    color: white;
+    background-color: black;
+    width: 200px;
+    border-radius: 14px 14px 14px 14px;
+}
+
+.btn-3{
+    color: white;
+    background-color: rgb(143, 16, 16);
+    width: 200px;
+    border-radius: 14px 14px 14px 14px;
+}
+
+.btn-4{
+    color: white;
+    background-color: rgb(2, 133, 31);
+    width: 200px;
+    border-radius: 14px 14px 14px 14px;
+}
+
+.titulo-supervisar{
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+
+
+
+

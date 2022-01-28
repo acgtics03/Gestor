@@ -1,0 +1,177 @@
+*{
+    margin: 0px;
+    padding:0px;
+    font-family: Arial;
+    color: #000000;
+}
+
+/*PARÁMETRO DE CABECERA*/
+#botones{
+    background-color: #001843;
+    margin: 0px;
+    display: block;
+    padding: 10px;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+/*PARÁMETROS DE MENÚ LATERAL*/
+#menu{
+    position: absolute;
+    width: 245px;
+    height: 577px;
+    background-color: #FFC931;
+}
+
+#icono{
+    margin-right: 3%;
+}
+
+#menu nav ul li ul li a img{
+    transform: rotate(90deg);
+    width: 5%;
+    height: 5%;
+    margin-right: 3%;
+}
+
+#menu nav ul{
+    list-style: none;
+    margin: 0;
+    margin-left: -3%;
+}
+
+#menu nav ul li{
+    padding: 20px;
+    position: relative;
+    width: 210px;
+    background-color: #FFC931;
+    border-top: 1px solid #ffffff;
+    cursor: pointer;
+}
+
+#menu nav ul ul{
+    transition: all 0.3s;
+    opacity: 0;
+    position: absolute;
+    visibility: hidden;
+    left: 103%;
+    top: -0%;
+}
+
+#menu nav ul li a{
+    display: block;
+}
+
+#menu nav ul li:hover > ul{
+    opacity: 1;
+    visibility: visible;
+}
+
+#menu nav ul li:hover{
+    background-color: lightgray;
+    width: 210px;
+}
+
+#menu nav ul li a{
+    color: #000000;
+    text-decoration: none;
+    margin-left: 8%;
+}
+
+/*PARÁMETROS DEL CUERPO DE INDICADORES*/
+
+#cuerpo{
+    margin-left: 100%;
+}
+
+#contenedor1{
+    margin-left: 450px;
+    margin-top: 400px;
+}
+
+#titulo{
+    margin-left: 200px;
+    font-size: 30px;
+}
+
+#asistencia{
+    border: 1px solid #000000;
+    border-radius: 3px;
+    font-size: 13px;
+    margin-right: 6px;
+}
+
+#permisos{
+    border: 1px solid #000000;
+    border-radius: 3px;
+    font-size: 13px;
+    margin-right: 6px;
+}
+
+#visitas{
+    border: 1px solid #000000;
+    border-radius: 3px;
+    font-size: 13px;
+    margin-right: 6px;
+}
+
+#campo0a{
+    margin-left: 10px;
+    margin-right: 28px;
+    font-size: 20px;
+}
+
+#fecha{
+    margin-right: 10px;
+}
+
+#campo1a{
+    margin-right: 68px;
+    margin-left: 30px;
+    color: green;
+}
+
+#campo2a{
+    margin-right: 80px;
+    margin-left: 48px;
+    color:red;
+}
+
+#campo0p{
+    margin-left: 10px;
+    margin-right: 28px;
+    font-size: 20px;
+}
+
+#campo1p{
+    margin-right: 60px;
+    margin-left: 13px;
+    color: green;
+}
+
+#campo2p{
+    margin-right: 70px;
+    margin-left: 5px;
+    color:red;
+}
+#campo0v{
+    margin-left: 10px;
+    margin-right: 28px;
+    font-size: 20px; 
+}
+
+#campo1v{
+    margin-right: 55px;
+    margin-left: 30px;
+    font-size: 25.8px;
+}
+
+#campo2v{
+    font-size: 25.8px;
+}
+
+#campo3v{
+    margin-right: 58px;
+    margin-left: 30px;
+}

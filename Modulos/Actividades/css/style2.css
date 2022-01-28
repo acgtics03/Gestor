@@ -1,0 +1,188 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+body{
+     background: brown;	
+}
+h3{
+	font-family: 'Arial';
+	font-size: 12pt;
+	letter-spacing: 1px;
+	width: 100%;
+	background: #E9BE40;
+	padding: 10px;
+	color: #FFF;
+	text-align: center;
+	text-transform: uppercase;
+	border-radius: 11px 11px 11px 11px;
+	font-weight: bold;
+	
+}
+p{
+	color: white;
+	text-align: left;
+	padding: 20px;
+}
+h2{
+    font-family: Arial;
+    font-size: 14px;
+    text-align: center;
+}
+h4{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	text-align: center;
+}
+h5{
+    font-family: 'Arial';
+	font-size: 16pt;
+	letter-spacing: 1px;
+	width: 100%;
+	background: #E9BE40;
+	padding: 15px;
+	color: #FFF;
+	text-align: center;
+	text-transform: uppercase;
+}
+#container{
+	background-image: url(../img/fondologin.jpg);
+	width: 100%;
+	height: 100vh;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+#container form iframe{
+	width: 95%;
+}
+#container form{
+	background: rgb(255, 254, 254,0.5);
+	width: 350px;
+	padding: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	text-align: center;
+}
+
+#container form img{
+	margin: 15px auto;
+	text-align: center;
+	display: block;
+}
+#container form input{
+	width: 90%;
+	padding: 5px;
+	font-size: 14pt;
+	display: block;
+	margin: 25px auto;
+	border-radius: 5px;
+	border: 1px solid  #85929e;
+	text-align: center;
+}
+
+#container form input[type="date"]{
+	padding: 10px;
+	letter-spacing: 1px;
+	border: 0;
+    cursor: pointer;
+	width: 50%;
+	font-size: 16pt;
+}
+
+#container form input[type="submit"]{
+    background:  #001843;
+	padding: 10px;
+	color: #FFF;
+	letter-spacing: 1px;
+	border: 0;
+    cursor: pointer;
+    width: 50%;
+}
+#container form input[type="number"]{
+	font-size: 16px;
+}
+
+#container form input[type="button"]{
+    background:  #001843;
+	padding: 10px;
+	color: #FFF;
+	letter-spacing: 1px;
+	border: 0;
+    cursor: pointer;
+    width: 50%;
+}
+
+#container select{
+    font-size: 16px;
+    width: 90%;
+    padding: 5px;
+    cursor: pointer;
+    display: block;
+	margin: 25px auto;
+	border-radius: 5px;
+}
+#container option{
+    text-align: center;
+}
+#container label{
+    font-family: Arial;
+    font-size: 12px;
+	color:  #001843;
+	
+}
+.alert{
+	font-family: 'Arial';
+	font-size: 16px;
+	text-align: center;
+	background-color: #001843;
+	color:#FFC931;
+}
+
+#scroll_tabla{
+	overflow-y: auto;
+	overflow-x: hidden;
+    height: 150px;
+}
+
+#pie{
+	width: auto;
+	text-align: left;
+	display: flex;
+	justify-content: space-between;
+	margin: auto;
+
+}
+table tr:hover {
+	background-color: #FFC931;;
+	cursor: pointer;
+  }
+
+.Datos{
+	text-align: left; 
+	margin-left: 5px;
+	display: inline;
+}
+.subDatos{
+	display: inline-block;
+}
+.tit{
+	font-weight: bold;
+	font-size: 16px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+.dtit{
+	text-align: left;
+}
+.prueba{
+	margin-top: 10px;	
+}
+
+
+
+

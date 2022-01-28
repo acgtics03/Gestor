@@ -1,0 +1,58 @@
+thead tr th { 
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: #ffffff;
+}
+
+.content-tab{
+
+    overflow-y: scroll; 
+    height: 660px;
+    background-color: rgb(231, 231, 231);
+
+}
+
+.table-coment{
+    position: sticky;
+}
+
+.cabecera{
+    width: 450px;
+}
+
+.contacto{
+    width: 100%; 
+    text-align: justify; 
+    font-family: Arial, Helvetica, sans-serif; 
+    font-size: 13px; 
+    /*background-color: rgb(171, 171, 172);*/ 
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    height: 30px;
+}
+
+.coment{
+    width: 100%; 
+    height: 100px; 
+    text-align: justify; 
+    font-family: Helvetica; 
+    font-size: 12px; 
+    padding: 12px; 
+    resize: none;
+
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+input[type=number] { -moz-appearance:textfield; }
+
+
+.campo-date{
+    width: 103px; 
+    text-align: center;
+}
