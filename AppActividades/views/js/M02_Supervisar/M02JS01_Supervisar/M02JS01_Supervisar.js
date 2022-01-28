@@ -28,12 +28,13 @@ ValidarPerfil();
 
 /************************************-------------  BOTON DE CERRAR SESION ---------------**********************/
 
-function ConsultaCerrarSesion() { 
+function ConsultaCerrarSesion() {
   mensaje_sesion("Al confirmar saldrá del Modulo de Actividades.", CerrarSesion);
 }
 
 function CerrarSesion(){
-    window.location.replace('https://acg-soft.com/ti/extranet/Gestor/');  
+  var url = $("#txtRuta").val();
+    window.location.replace(url);    
 }
 
 
@@ -49,7 +50,7 @@ function ValidarPerfil(){
         success: function (dato) {
             desbloquearPantalla();
             if (dato.status == "ok") {
-                
+
               /*  var x = document.getElementById("FiltroResponsable");
                 x.style.display = "block";*/
 
@@ -57,7 +58,7 @@ function ValidarPerfil(){
                 y.style.display = "block";
 
             } else {
-                
+
                 /*var x = document.getElementById("FiltroResponsable");
                 x.style.display = "none";*/
 

@@ -30,7 +30,7 @@ function Control() {
 
     $('#btnbuscar').click(function() {
         //$('#TablaActividades').DataTable().ajax.reload();
-        //$('#TablaActividadesReporte').DataTable().ajax.reload();        
+        //$('#TablaActividadesReporte').DataTable().ajax.reload();
         BuscarActividadesGenerados();
         //InicializarAtributosTablaBusquedaCabActividades();
      });
@@ -43,7 +43,7 @@ function Control() {
         InicializarAtributosTablaBusquedaCabActividades();
      });
 
-    
+
     $('#btnGuardarPopup').click(function() {
         GuardarPopup();
      });
@@ -86,11 +86,11 @@ function Control() {
      });
 
 
-    
+
 }
 
 function LlenarFechas() {
-  
+
    bloquearPantalla("Buscando...");
     var data = {
         "btnLlenarFechas": true
@@ -104,21 +104,21 @@ function LlenarFechas() {
             desbloquearPantalla();
             if (dato.status == "ok") {
                 $("#txtfiltroFecInicio").val(dato.fecha1);
-                $("#txtfiltroFecTermino").val(dato.fecha2);       
-            } 
+                $("#txtfiltroFecTermino").val(dato.fecha2);
+            }
         },
         error: function(error) {
             console.log(error);
             desbloquearPantalla();
         },
         timeout: timeoutDefecto
-    });          
+    });
 }
 
 
 /*****************************************LLENAR TABLA LISTA********************************************* */
 function ListarActividadesDiarias() {
-   
+
     var options = $.extend(true, {}, defaults, {
         "order": [
             [1, "asc"]
@@ -181,7 +181,7 @@ function ListarActividadesDiarias() {
             },
             { "data": "tiempo" },
             { "data": "empresa" },
-            { "data": "nombre" }                      
+            { "data": "nombre" }
 
         ],
         "language": {
@@ -221,7 +221,7 @@ function ListarActividadesDiariasReporte() {
             "type": "POST",
             "error": validarErrorGrilla,
             "data": function(d) {
-                return $.extend({}, d, {                    
+                return $.extend({}, d, {
                 });
             }
         },
@@ -269,7 +269,7 @@ function LlenarTipoActividad(){
     var datos = {
         "btnListarTiposActividad": true
     }
-    llenarCombo(url, datos, "bxTipoActividad");  
+    llenarCombo(url, datos, "bxTipoActividad");
 }
 
 function LlenarResponsables(){
@@ -278,7 +278,7 @@ function LlenarResponsables(){
     var datos = {
         "btnListarResponsables": true
     }
-    llenarCombo(url, datos, "bxResponsable");  
+    llenarCombo(url, datos, "bxResponsable");
 }
 
 function LlenarResponsablesPopup(){
@@ -287,7 +287,7 @@ function LlenarResponsablesPopup(){
     var datos = {
         "btnListarResponsables": true
     }
-    llenarCombo(url, datos, "bxResponsable");  
+    llenarCombo(url, datos, "bxResponsable");
 }
 
 function LlenarFiltroResponsables(){
@@ -296,7 +296,7 @@ function LlenarFiltroResponsables(){
     var datos = {
         "btnListarFiltroResponsables": true
     }
-    llenarCombo(url, datos, "bxfiltroResponsable");  
+    llenarCombo(url, datos, "bxfiltroResponsable");
 }
 
 
@@ -306,7 +306,7 @@ function LlenarTipoActividadPopup(){
     var datos = {
         "btnListarTiposActividadPopup": true
     }
-    llenarCombo(url, datos, "bxNombreActividadPopup");  
+    llenarCombo(url, datos, "bxNombreActividadPopup");
 }
 
 function LlenarNombresActividadTarea(){
@@ -315,7 +315,7 @@ function LlenarNombresActividadTarea(){
     var datos = {
         "btnListarTiposActividadTarea": true
     }
-    llenarCombo(url, datos, "bxNombreActividadTarea");  
+    llenarCombo(url, datos, "bxNombreActividadTarea");
 }
 
 function cancelar() {
@@ -327,7 +327,7 @@ function cancelar() {
 }
 
 
-function Registrar() {   
+function Registrar() {
     var timeoutDefecto = 1000 * 60;
     bloquearPantalla("Procesando...");
     var data = {
@@ -364,7 +364,7 @@ function Registrar() {
                     //InicializarAtributosTablaBusquedaCabActividades();
 
                     $('#TablaActividadesDiarias').DataTable().ajax.reload();
-                    $('#TablaActividadesDiariasReporte').DataTable().ajax.reload();                     
+                    $('#TablaActividadesDiariasReporte').DataTable().ajax.reload();
 
                 }, 100);
                 return;
@@ -488,7 +488,7 @@ function LlenarTablaActividadesGenerados(datos) {
             },
             { "data": "cliente" },
             { "data": "tareas" },
-            { "data": "nombre" },            
+            { "data": "nombre" },
             { "data": "dato" }
         ],
         "select": {
@@ -559,7 +559,7 @@ function LlenarTablaActividadesGeneradosReporte() {
             { "data": "descEstado" },
             { "data": "cliente" },
             { "data": "tareas" },
-            { "data": "nombre" },            
+            { "data": "nombre" },
             { "data": "dato" }
         ],
         "language": {
@@ -616,7 +616,7 @@ function format(data) {
 
 
 function InicializarAtributosTablaBusquedaCabActividades() {
-    
+
     $('#TablaActividades').on('key-focus.dt', function(e, datatable, cell) {
 
         getTablaBusquedaCabGenerado.row(cell.index().row).select();
@@ -659,7 +659,7 @@ function BuscarTareasGenerado(codigo) {
 }
 
 function respuestaBuscarMovimientoDetalleGenerado(dato) {
-    desbloquearPantalla();   
+    desbloquearPantalla();
     CargarTablaBusquedaDetalleMovimientoGenerado(dato.data);
 }
 
@@ -750,7 +750,7 @@ function AbrirModalRegistroActualizar(id) {
 
                 $("#txtIDActividadPopup").val(resultado.id);
                 $("#bxNombreActividadPopup").val(resultado.nombre);
-                $("#txtDescripcionPopup").val(resultado.descripcion);                
+                $("#txtDescripcionPopup").val(resultado.descripcion);
                 $("#txtFechaInicioPopup").val(resultado.fechaini);
                 $("#txtFechaTerminoPopup").val(resultado.fechafin);
                 $("#txtHoraInicioPopup").val(resultado.Horaini);
@@ -777,10 +777,10 @@ function AbrirModalRegistroActualizar(id) {
             desbloquearPantalla();
         },
         timeout: timeoutDefecto
-    });          
+    });
 }
 
-function GuardarPopup() {   
+function GuardarPopup() {
     var timeoutDefecto = 1000 * 60;
     bloquearPantalla("Procesando...");
     var data = {
@@ -814,12 +814,12 @@ function GuardarPopup() {
                 setTimeout(function () {
                     mensaje_alerta("¡Correcto!", dato.data, "success");
                     //$('#TablaActividades').DataTable().ajax.reload();
-                    //$('#TablaActividadesReporte').DataTable().ajax.reload(); 
+                    //$('#TablaActividadesReporte').DataTable().ajax.reload();
                     BuscarActividadesGenerados();
-                    //InicializarAtributosTablaBusquedaCabActividades();  
+                    //InicializarAtributosTablaBusquedaCabActividades();
 
                     $('#TablaActividadesDiarias').DataTable().ajax.reload();
-                    $('#TablaActividadesDiariasReporte').DataTable().ajax.reload();                  
+                    $('#TablaActividadesDiariasReporte').DataTable().ajax.reload();
 
                 }, 100);
                 return;
@@ -860,14 +860,14 @@ function AbrirModalTareas(id) {
 
                 $("#txtIDActividadTareas").val(resultado.id);
                 $("#bxNombreActividadTarea").val(resultado.nombre);
-                $("#txtFechaInicioTarea").val(resultado.fechaini);                
+                $("#txtFechaInicioTarea").val(resultado.fechaini);
                 $("#txtFechaTerminoTarea").val(resultado.fechafin);
                 $("#bxClienteActividadTarea").val(resultado.cliente);
                 $("#txtDescripcionActividadTarea").val(resultado.descripcion);
 
                 $('#modalTareas').modal('show');
-                BuscarTareasPopup(resultado.id); 
-                ListarResponsablesTarea(resultado.id)   
+                BuscarTareasPopup(resultado.id);
+                ListarResponsablesTarea(resultado.id)
 
                 return;
             } else {
@@ -879,7 +879,7 @@ function AbrirModalTareas(id) {
             desbloquearPantalla();
         },
         timeout: timeoutDefecto
-    });       
+    });
 }
 
 function BuscarTareasPopup(id) {
@@ -973,13 +973,13 @@ function CargarTablaTareas(data) {
 }
 
 function AbrirModalUpdateTareas(id){
-    
+
      ListarResponsablesTarea2(id);
      AbrirModalEditarTareas(id);
 }
 
 function AbrirModalEditarTareas(id) {
-   
+
   // $('#modalRegistrar').modal('show');
    bloquearPantalla("Buscando...");
     var data = {
@@ -998,7 +998,7 @@ function AbrirModalEditarTareas(id) {
 
                 $("#txtIDActividadTareas2").val(resultado.id);
                 $("#txtNombreTarea2").val(resultado.nombre);
-                $("#txtFechaInicioTarea2").val(resultado.fechaini);                
+                $("#txtFechaInicioTarea2").val(resultado.fechaini);
                 $("#txtFechaTerminoTarea2").val(resultado.fechafin);
                 $("#txtHoraInicioTarea2").val(resultado.Horaini);
                 $("#txtMinutosInicioTarea2").val(resultado.Minutosini);
@@ -1008,7 +1008,7 @@ function AbrirModalEditarTareas(id) {
                 $("#bxEstadoTarea2").val(resultado.estado);
                 $("#bxResponsableTarea2").val(resultado.responsable);
 
-                $('#modalEditarTareas').modal('show');               
+                $('#modalEditarTareas').modal('show');
 
                 return;
             } else {
@@ -1020,10 +1020,10 @@ function AbrirModalEditarTareas(id) {
             desbloquearPantalla();
         },
         timeout: timeoutDefecto
-    });       
+    });
 }
 
-function GuardarTareaPopup() {   
+function GuardarTareaPopup() {
     var timeoutDefecto = 1000 * 60;
     bloquearPantalla("Procesando...");
     var data = {
@@ -1050,7 +1050,7 @@ function GuardarTareaPopup() {
                 setTimeout(function () {
                     mensaje_alerta("¡Correcto!", dato.data, "success");
                     BuscarActividadesGenerados();
-                    BuscarTareasPopup(dato.id);                                
+                    BuscarTareasPopup(dato.id);
 
                 }, 100);
                 return;
@@ -1067,7 +1067,7 @@ function GuardarTareaPopup() {
     });
 }
 
-function EditarTareaPopup() {   
+function EditarTareaPopup() {
     var timeoutDefecto = 1000 * 60;
     bloquearPantalla("Procesando...");
     var data = {
@@ -1097,7 +1097,7 @@ function EditarTareaPopup() {
                     BuscarTareasPopup(dato.id);
                     BuscarActividadesGenerados();
                     $('#TablaActividadesDiarias').DataTable().ajax.reload();
-                    $('#TablaActividadesDiariasReporte').DataTable().ajax.reload();                                   
+                    $('#TablaActividadesDiariasReporte').DataTable().ajax.reload();
 
                 }, 100);
                 return;
@@ -1122,7 +1122,7 @@ function ListarResponsablesTarea(idact){
         "idactividad": idact
     }
     console.log(datos);
-    llenarCombo(url, datos, "bxResponsableTarea");  
+    llenarCombo(url, datos, "bxResponsableTarea");
 }
 
 function ListarResponsablesTarea2(ida){
@@ -1133,11 +1133,11 @@ function ListarResponsablesTarea2(ida){
         "idactividad": ida
     }
     console.log(datos);
-    llenarCombo(url, datos, "bxResponsableTarea2");  
+    llenarCombo(url, datos, "bxResponsableTarea2");
 }
 
 function AbrirModalEliminarTareas(idtarea){
-   // var idpart = id;    
+   // var idpart = id;
     mensaje_eliminar_parametro("¿Seguro que desea eliminar la tarea seleccionada?", EliminarTarea, idtarea);
 }
 
@@ -1161,7 +1161,7 @@ function EliminarTarea(idtarea){
                     BuscarTareasPopup(dato.id);
                     BuscarActividadesGenerados();
                     $('#TablaActividadesDiarias').DataTable().ajax.reload();
-                    $('#TablaActividadesDiariasReporte').DataTable().ajax.reload();                  
+                    $('#TablaActividadesDiariasReporte').DataTable().ajax.reload();
 
                 }, 100);
                 return;
@@ -1183,7 +1183,7 @@ function EliminarTarea(idtarea){
 /*************************-------------  BOTON DE PARTICIPANTES ---------------*******************/
 
 function AbrirModalParticipantes(id) {
-  
+
    //$('#modalParticipantes').modal('show');
    bloquearPantalla("Buscando...");
     var data = {
@@ -1202,7 +1202,7 @@ function AbrirModalParticipantes(id) {
 
                 $("#txtidActividadParticipantes").val(resultado.id);
                 $("#bxNombreActividadParticipantes").val(resultado.nombre);
-                $("#txtFechaInicioParticipantes").val(resultado.fechaini);                
+                $("#txtFechaInicioParticipantes").val(resultado.fechaini);
                 $("#txtFechaTerminoParticipantes").val(resultado.fechafin);
                 $("#bxClienteParticipantes").val(resultado.cliente);
                 $("#bxEstadoParticipantes").val(resultado.estado);
@@ -1219,7 +1219,7 @@ function AbrirModalParticipantes(id) {
             desbloquearPantalla();
         },
         timeout: timeoutDefecto
-    });          
+    });
 }
 
 function BuscarParticipantesPopup(id) {
@@ -1235,7 +1235,7 @@ function BuscarParticipantesPopup(id) {
 function respuestaBuscarParticipantes(dato) {
     desbloquearPantalla();
     if (dato.status === "ok") {
-        ListaParticipantesPopup = dato.data;        
+        ListaParticipantesPopup = dato.data;
         CargarTablaParticipantes(ListaParticipantesPopup);
         return;
     }
@@ -1283,7 +1283,7 @@ function CargarTablaParticipantes(data) {
     });
 }
 
-function RegistrarParticipantesPopup() {   
+function RegistrarParticipantesPopup() {
     var timeoutDefecto = 1000 * 60;
     bloquearPantalla("Procesando...");
     var data = {
@@ -1301,7 +1301,7 @@ function RegistrarParticipantesPopup() {
             if (dato.status == "ok") {
                 setTimeout(function () {
                     mensaje_alerta("¡Correcto!", dato.data, "success");
-                    BuscarParticipantesPopup(dato.id);                 
+                    BuscarParticipantesPopup(dato.id);
 
                 }, 100);
                 return;
@@ -1319,7 +1319,7 @@ function RegistrarParticipantesPopup() {
 }
 
 function AbrirModalEliminar(id){
-   // var idpart = id;    
+   // var idpart = id;
     var timeoutDefecto = 1000 * 60;
     bloquearPantalla("Procesando...");
     var data = {
@@ -1368,7 +1368,7 @@ function EliminarParticipante(idpart){
             if (dato.status == "ok") {
                 setTimeout(function () {
                     mensaje_alerta("¡Correcto!", dato.data, "success");
-                    BuscarParticipantesPopup(dato.id);                 
+                    BuscarParticipantesPopup(dato.id);
 
                 }, 100);
                 return;
@@ -1408,7 +1408,7 @@ function AbrirModalEliminarActividad(id){
 
                 $("#txtIdActividad").val(resultado.id);
                 $("#bxNombreActivi").val(resultado.nombre);
-                $("#bxClienteActivi").val(resultado.cliente);                
+                $("#bxClienteActivi").val(resultado.cliente);
                 $("#bxResponsableActivi").val(resultado.responsable);
                 $("#txtFecInicioActivi").val(resultado.fechaini);
                 $("#txtFecTerminoActivi").val(resultado.fechafin);
@@ -1425,7 +1425,7 @@ function AbrirModalEliminarActividad(id){
             desbloquearPantalla();
         },
         timeout: timeoutDefecto
-    });       
+    });
 }
 
 function LlenarTipoActividadEliminar(){
@@ -1434,11 +1434,11 @@ function LlenarTipoActividadEliminar(){
     var datos = {
         "btnListarTiposActividad": true
     }
-    llenarCombo(url, datos, "bxNombreActivi");  
+    llenarCombo(url, datos, "bxNombreActivi");
 }
 
 function VerificarEliminarActividad(){
-   // var idpart = id;    
+   // var idpart = id;
     var timeoutDefecto = 1000 * 60;
     bloquearPantalla("Procesando...");
     var data = {
@@ -1491,7 +1491,7 @@ function EliminarActividad(idact){
                     mensaje_alerta("¡Correcto!", dato.data, "success");
                     BuscarActividadesGenerados();
                     $('#TablaActividadesDiarias').DataTable().ajax.reload();
-                    $('#TablaActividadesDiariasReporte').DataTable().ajax.reload();                  
+                    $('#TablaActividadesDiariasReporte').DataTable().ajax.reload();
 
                 }, 100);
                 return;
@@ -1527,7 +1527,7 @@ function AbrirModalFinalizarActividad(id){
         success: function(dato) {
             desbloquearPantalla();
             if (dato.status == "ok") {
-                
+
                 accion_parametro(dato.data, FinalizarActividad, dato.id);
 
             } else {
@@ -1539,7 +1539,7 @@ function AbrirModalFinalizarActividad(id){
             desbloquearPantalla();
         },
         timeout: timeoutDefecto
-    });       
+    });
 }
 
 
@@ -1562,7 +1562,7 @@ function FinalizarActividad(idact){
                     mensaje_alerta("¡Correcto!", dato.data, "success");
                     BuscarActividadesGenerados();
                     $('#TablaActividadesDiarias').DataTable().ajax.reload();
-                    $('#TablaActividadesDiariasReporte').DataTable().ajax.reload();                  
+                    $('#TablaActividadesDiariasReporte').DataTable().ajax.reload();
 
                 }, 100);
                 return;
@@ -1603,7 +1603,7 @@ function AbrirModalComentariosActividades(id){
 
                 $("#txtIdActividad").val(resultado.id);
                 $("#bxNombreActivi").val(resultado.nombre);
-                $("#bxClienteActivi").val(resultado.cliente);                
+                $("#bxClienteActivi").val(resultado.cliente);
                 $("#bxResponsableActivi").val(resultado.responsable);
                 $("#txtFecInicioActivi").val(resultado.fechaini);
                 $("#txtFecTerminoActivi").val(resultado.fechafin);
@@ -1620,7 +1620,7 @@ function AbrirModalComentariosActividades(id){
             desbloquearPantalla();
         },
         timeout: timeoutDefecto
-    });*/       
+    });*/
 }
 
 
@@ -1628,12 +1628,13 @@ function AbrirModalComentariosActividades(id){
 
 /************************************-------------  BOTON DE CERRAR SESION ---------------**********************/
 
-function ConsultaCerrarSesion() { 
+function ConsultaCerrarSesion() {
   mensaje_sesion("Al confirmar saldrá del Modulo de Actividades.", CerrarSesion);
 }
 
 function CerrarSesion(){
-    window.location.replace('https://acg-soft.com/ti/extranet/Gestor/');  
+  var url = $("#txtRuta").val();
+    window.location.replace(url);  
 }
 
 
@@ -1649,7 +1650,7 @@ function ValidarPerfil(){
         success: function (dato) {
             desbloquearPantalla();
             if (dato.status == "ok") {
-                
+
                 var x = document.getElementById("FiltroResponsable");
                 x.style.display = "block";
 
@@ -1657,7 +1658,7 @@ function ValidarPerfil(){
                 y.style.display = "block";
 
             } else {
-                
+
                 var x = document.getElementById("FiltroResponsable");
                 x.style.display = "none";
 

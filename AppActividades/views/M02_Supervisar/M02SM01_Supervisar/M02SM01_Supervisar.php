@@ -12,6 +12,9 @@
   require_once "../../../../config/sesion.php";
   require_once "../../../controllers/ControllerCategorias.php";
   $fecha_hoy = date('Y-m-d');
+  $URL= "";
+$URL = $HOST;
+
 ?>
 <head>
   <meta charset="utf-8">
@@ -41,7 +44,7 @@
   <!-- LIBRERIAS ALERTA MENSAJES -->
   <link rel="stylesheet" type="text/css" href="../../css/sweetalert.css?v=<?php echo time(); ?>">
 
-  <link rel="stylesheet" type="text/css" href="../../main.css">  
+  <link rel="stylesheet" type="text/css" href="../../main.css">
   <link rel="stylesheet" href="../../datatables/datatables.min.css" />
   <link rel="stylesheet" href="../../datatables/DataTables-1.10.18/css/dataTables.bootstrap4.min.css" />
   <link rel="stylesheet" href="../../datatables/select/css/select.bootstrap4.min.css" />
@@ -102,7 +105,7 @@
         <!-- ============================================================== -->
         <!-- Start Page Content -->
         <!-- ============================================================== -->
-
+        <input type="hidden" name="" id="txtRuta" value="<?php echo $URL; ?>">
         <div class="card mt-3 indicadores">
           <div class="card-content">
             <div class="card mt-3 indicadores">
@@ -161,7 +164,7 @@
             <div class="card">
               <form class="form-horizontal">
                 <div class="card-body">
-                  <!-- INICIO GRAFICA ACTIVIDADES PROPIAS-->            
+                  <!-- INICIO GRAFICA ACTIVIDADES PROPIAS-->
                   <div class="card-header divgraf1">ACTIVIDADES PROPIAS</div>
                     <div class="card-body div1graf1">
                       <figure class="highcharts-figure">
@@ -212,7 +215,7 @@
                                           },
                                           credits: {
                                             enabled: false
-                                           },  
+                                           },
                                           tooltip: {
                                             headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
                                             pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}</b><br/>'
@@ -296,7 +299,7 @@
                           },
                           credits: {
                                enabled: false
-                           },   
+                           },
                           tooltip: {
                             headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
                             pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}</b><br/>'
@@ -336,7 +339,7 @@
           <div class="col-md-6">
             <div class="card">
               <div class="card-body">
-                <!-- INICIO GRAFICA ACTIVIDADES EN PARTICIPACION-->              
+                <!-- INICIO GRAFICA ACTIVIDADES EN PARTICIPACION-->
                 <div class="card-header divgraf2">ACTIVIDADES EN PARTICIPACION</div>
                 <div class="card-body div2graf2">
                   <figure class="highcharts-figure">
@@ -388,7 +391,7 @@
                     },
                     credits: {
                        enabled: false
-                    }, 
+                    },
                     tooltip: {
                       headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
                       pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}</b><br/>'
@@ -469,7 +472,7 @@
                   },
                   credits: {
                     enabled: false
-                  }, 
+                  },
                   tooltip: {
                     headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
                     pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}</b><br/>'
@@ -530,7 +533,7 @@
                   <div class="card-header h-div" style="color: white;">ELIMINADOS</div><br>
                   <div style="color: blue; text-align: center">
 
-                    <img src="../../image/eliminados.png" width="100px" height="100px" alt=""><br><br>  
+                    <img src="../../image/eliminados.png" width="100px" height="100px" alt=""><br><br>
                     <button class='btn-1' hidden><a href="#" class="rutas">Productos y/o Servicios</a></button>
                     <button class='btn-1'><a href="M02SM03_Eliminados.php" class="rutas">Actividades Propias y/o Participantes</a></button><br><br>
                   </div>
@@ -656,7 +659,7 @@
 <script src="../../librerias/utilitario/utilitario.js?v=1.1.1"></script>
 <script src="../../librerias/utilitario/sweetalert.min.js?v=1.1.1"></script>
 <script src="../../librerias/utilitario/dialogs.js?v=1.1.1"></script>
-<input type="hidden" id="__FECHA_ACTUAL" value="<?php echo strftime("%Y-%m-%d"); ?>">   
+<input type="hidden" id="__FECHA_ACTUAL" value="<?php echo strftime("%Y-%m-%d"); ?>">
 </body>
 
 </html>

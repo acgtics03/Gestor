@@ -12,6 +12,9 @@ require_once "../../../../config/conexion_app.php";
 require_once "../../../../config/sesion.php";
 require_once "../../../controllers/ControllerCategorias.php";
 $fecha_hoy = date('Y-m-d');
+$URL= "";
+$URL = $HOST;
+
 ?>
 <head>
     <meta charset="utf-8">
@@ -51,7 +54,7 @@ $fecha_hoy = date('Y-m-d');
     <!-- ============================================================== -->
     <!-- Preloader - style you can find in spinners.css -->
     <!-- ============================================================== -->
-    
+
     <!-- ============================================================== -->
     <!-- Main wrapper - style you can find in pages.scss -->
     <!-- ============================================================== -->
@@ -105,12 +108,13 @@ $fecha_hoy = date('Y-m-d');
                 <!-- Start Page Content -->
                 <!-- ============================================================== -->
                 <!-- editor -->
+                <input type="hidden" name="" id="txtRuta" value="<?php echo $URL; ?>">
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
                                 <h4 class="card-title">Control de Actividades Registradas</h4>
-                                
+
                                 <div class="border-top">
                                     <div class="card-body">
                                         <div class="form-group row">
@@ -134,7 +138,7 @@ $fecha_hoy = date('Y-m-d');
                                                         <option value="<?php echo $TEstados['ID']; ?>"><?php echo $TEstados['Nombre']; ?></option>
                                                     <?php }  ?>
                                                     <option value="todos">TODOS</option>
-                                                </select>                                                
+                                                </select>
                                             </div>
                                             <div class="row col" style="margin-left: 1%;">
                                                 <label for="fname" class="col-sm-6 control-label col-form-label label-texto-sm">Identificador</label>
@@ -163,17 +167,17 @@ $fecha_hoy = date('Y-m-d');
                                                 <select class="cbx-texto" name="bxfiltroResponsable" id="bxfiltroResponsable">
                                                     <option selected="true" disabled="disabled">Seleccionar..</option>
                                                 </select>
-                                                
+
                                             </div>
                                         </div>
                                         <div class="form-group row" style="margin-left: 40%;">
                                             <div class="row col-2">
-                                                <button id="btnbuscar" type="button" class="btn btn-registro-success"><i class="fas fa-search"></i> Buscar</button>                                            
+                                                <button id="btnbuscar" type="button" class="btn btn-registro-success"><i class="fas fa-search"></i> Buscar</button>
                                             </div>
                                             <div class="row col-2" style="margin-left: 1%;">
-                                                <button id="btnlimpiar" type="button" class="btn btn-registro-primary"><i class="fas fa-sync-alt"></i> Limpiar</button>                                             
-                                            </div>                                           
-                                        </div>                                        
+                                                <button id="btnlimpiar" type="button" class="btn btn-registro-primary"><i class="fas fa-sync-alt"></i> Limpiar</button>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
 
@@ -191,7 +195,7 @@ $fecha_hoy = date('Y-m-d');
                                                     <th>ESTADO</th>
                                                     <th>CLIENTE</th>
                                                     <th>TAREAS</th>
-                                                    <th>NOMBRE</th>                                                    
+                                                    <th>NOMBRE</th>
                                                     <th>RESPONSABLE</th>
                                                 </tr>
                                             </thead>
@@ -206,10 +210,10 @@ $fecha_hoy = date('Y-m-d');
                                                     <th></th>
                                                     <th>INICIO</th>
                                                     <th>FIN</th>
-                                                    <th>ESTADO</th>                                                    
+                                                    <th>ESTADO</th>
                                                     <th>CLIENTE</th>
                                                     <th>TAREAS</th>
-                                                    <th>NOMBRE</th>                                                    
+                                                    <th>NOMBRE</th>
                                                     <th>RESPONSABLE</th>
                                                 </tr>
                                             </thead>
@@ -317,7 +321,7 @@ $fecha_hoy = date('Y-m-d');
     <script src="../../librerias/utilitario/utilitario.js?v=1.1.1"></script>
     <script src="../../librerias/utilitario/sweetalert.min.js?v=1.1.1"></script>
     <script src="../../librerias/utilitario/dialogs.js?v=1.1.1"></script>
-    <input type="hidden" id="__FECHA_ACTUAL" value="<?php echo strftime("%Y-%m-%d"); ?>">    
+    <input type="hidden" id="__FECHA_ACTUAL" value="<?php echo strftime("%Y-%m-%d"); ?>">
 
 </body>
 

@@ -37,7 +37,7 @@ function Control() {
 
       $('#btnbuscar').click(function() {
         //$('#TablaActividades').DataTable().ajax.reload();
-        //$('#TablaActividadesReporte').DataTable().ajax.reload();        
+        //$('#TablaActividadesReporte').DataTable().ajax.reload();
         BuscarActividadesGenerados();
         //InicializarAtributosTablaBusquedaCabActividades();
      });
@@ -56,7 +56,7 @@ function LlenarFiltroResponsables(){
     var datos = {
         "btnListarFiltroResponsables": true
     }
-    llenarCombo(url, datos, "bxfiltroResponsable");  
+    llenarCombo(url, datos, "bxfiltroResponsable");
 }
 
 
@@ -148,7 +148,7 @@ function LlenarTabalaActividadesGenerados(datos) {
             },
             { "data": "cliente" },
             { "data": "tareas" },
-            { "data": "nombre" },            
+            { "data": "nombre" },
             { "data": "dato" }
         ],
         "select": {
@@ -236,7 +236,7 @@ function BuscarTareasGenerado(codigo) {
 }
 
 function respuestaBuscarMovimientoDetalleGenerado(dato) {
-    desbloquearPantalla();   
+    desbloquearPantalla();
     CargarTablaBusquedaDetalleMovimientoGenerado(dato.data);
 }
 
@@ -303,9 +303,9 @@ function CargarTablaBusquedaDetalleMovimientoGenerado(data) {
 
 
 /************************************--------------REASIGNAR --------------------****************************/
- 
+
 function AbrirModalRestablecer(id) {
-  
+
    //$('#modalReasignar').modal('show');
    bloquearPantalla("Buscando...");
     var data = {
@@ -324,7 +324,7 @@ function AbrirModalRestablecer(id) {
 
                 $("#txtidactividad").val(resultado.id);
                 $("#bxNombreActividadParticipantes").val(resultado.nombre);
-                $("#txtFechaInicioParticipantes").val(resultado.fechaini);                
+                $("#txtFechaInicioParticipantes").val(resultado.fechaini);
                 $("#txtFechaTerminoParticipantes").val(resultado.fechafin);
                 $("#bxClienteParticipantes").val(resultado.cliente);
                 $("#bxEstadoParticipantes").val(resultado.estado);
@@ -342,11 +342,11 @@ function AbrirModalRestablecer(id) {
             desbloquearPantalla();
         },
         timeout: timeoutDefecto
-    });          
+    });
 }
 
 function Restablecer() {
-  
+
    //$('#modalReasignar').modal('show');
    bloquearPantalla("Buscando...");
     var data = {
@@ -363,7 +363,7 @@ function Restablecer() {
             desbloquearPantalla();
             if (dato.status == "ok") {
                 mensaje_alerta("¡Correcto!", dato.data, "success");
-                BuscarActividadesGenerados();          
+                BuscarActividadesGenerados();
             } else {
                 mensaje_alerta("¡Error al Reasignar!", dato.data, "info");
             }
@@ -373,18 +373,19 @@ function Restablecer() {
             desbloquearPantalla();
         },
         timeout: timeoutDefecto
-    });          
+    });
 }
 
 
 /************************************-------------  BOTON DE CERRAR SESION ---------------**********************/
 
-function ConsultaCerrarSesion() { 
+function ConsultaCerrarSesion() {
   mensaje_sesion("Al confirmar saldrá del Modulo de Actividades.", CerrarSesion);
 }
 
 function CerrarSesion(){
-    window.location.replace('https://acg-soft.com/ti/extranet/Gestor/');  
+  var url = $("#txtRuta").val();
+    window.location.replace(url);    
 }
 
 
@@ -400,7 +401,7 @@ function ValidarPerfil(){
         success: function (dato) {
             desbloquearPantalla();
             if (dato.status == "ok") {
-                
+
                var x = document.getElementById("FiltroResponsable");
                 x.style.display = "block";
 
@@ -408,7 +409,7 @@ function ValidarPerfil(){
                 y.style.display = "block";
 
             } else {
-                
+
                 var x = document.getElementById("FiltroResponsable");
                 x.style.display = "none";
 

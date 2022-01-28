@@ -9,6 +9,8 @@ if (!empty($_SESSION['usu'])) {
 require_once "../config/configuracion.php";
 require_once "../config/conexion_app.php";
 require_once "../config/sesion.php";
+$URL= "";
+$URL = $HOST;
 ?>
 <head>
     <meta charset="utf-8">
@@ -92,7 +94,7 @@ require_once "../config/sesion.php";
                 <!-- ============================================================== -->
                 <!-- Start Page Content -->
                 <!-- ============================================================== -->
-
+                <input type="hidden" name="" id="txtRuta" value="<?php echo $URL; ?>">
                 <div class="card mt-3 indicadores">
                   <div class="card-content">
                     <div class="row row-group m-0">
@@ -146,7 +148,7 @@ require_once "../config/sesion.php";
                         <div class="card">
                             <form class="form-horizontal">
                                 <div class="card-body">
-                                    <!-- INICIO GRAFICA ACTIVIDADES PROPIAS-->            
+                                    <!-- INICIO GRAFICA ACTIVIDADES PROPIAS-->
                                     <div class="card-header divgraf1">ACTIVIDADES PROPIAS</div>
                                     <div class="card-body div1graf1">
                                         <figure class="highcharts-figure">
@@ -324,7 +326,7 @@ require_once "../config/sesion.php";
                                     <!-- INICIO CUADRO RESUMEN ACTIVIDADES PROPIAS-->
                                     <div class="card-header divgraf1">
                                           <div style="display: inline-block">
-                                              ACTIVIDADES PROPIAS - <?php echo $des_mes; ?> 
+                                              ACTIVIDADES PROPIAS - <?php echo $des_mes; ?>
                                           </div>
                                       </div>
                                     <div class="table-responsive">
@@ -363,7 +365,7 @@ require_once "../config/sesion.php";
                                     <!-- INICIO CUADRO RESUMEN PRODUCTOS-->
                                     <div class="card-header divgraf3">
                                           <div style="display: inline-block">
-                                              PRODUCTOS - <?php echo $des_year; ?> 
+                                              PRODUCTOS - <?php echo $des_year; ?>
                                           </div>
                                       </div>
                                     <div class="table-responsive">
@@ -406,7 +408,7 @@ require_once "../config/sesion.php";
                     <div class="col-md-6">
                         <div class="card">
                             <div class="card-body">
-                                <!-- INICIO GRAFICA ACTIVIDADES EN PARTICIPACION-->              
+                                <!-- INICIO GRAFICA ACTIVIDADES EN PARTICIPACION-->
                                 <div class="card-header divgraf2">ACTIVIDADES EN PARTICIPACION</div>
                                 <div class="card-body div2graf2">
                                     <figure class="highcharts-figure">
@@ -577,7 +579,7 @@ require_once "../config/sesion.php";
                                 <!-- INICIO CUADRO RESUMEN ACTIVIDADES EN PARTICIPACION-->
                                 <div class="card-header divgraf2">
                                    <div style="display: inline-block">
-                                          ACTIVIDADES EN PARTICIPACION - <?php echo $des_mes; ?> 
+                                          ACTIVIDADES EN PARTICIPACION - <?php echo $des_mes; ?>
                                       </div>
                                   </div>
                                 <div class="table-responsive">
@@ -635,7 +637,7 @@ require_once "../config/sesion.php";
                                           <td style="text-align: center;"><?php echo $consultaaSrvMensP['TotSrvMensP']; ?></td>
                                           <td style="text-align: center;"><?php echo $consultaaSrvMensPC['TotSrvMensPC']; ?></td>
                                           <td style="text-align: center;"><?php echo $consultaaSrvMensF['TotSrvMensF']; ?></td>
-                                          
+
                                         </tr>
                                         <tr>
                                           <td>Trimestral (<?php echo $SUMASrvTrim; ?>)</td>
@@ -647,7 +649,7 @@ require_once "../config/sesion.php";
                                           <td>Anual (<?php echo $SUMASrvAnual; ?>)</td>
                                           <td style="text-align: center;"><?php echo $consultaaSrvAnualP['TotSrvAnualP']; ?></td>
                                           <td style="text-align: center;"><?php echo $consultaaSrvAnualPC['TotSrvAnualPC']; ?></td>
-                                          <td style="text-align: center;"><?php echo $consultaaSrvAnualF['TotSrvAnualF']; ?></td>            
+                                          <td style="text-align: center;"><?php echo $consultaaSrvAnualF['TotSrvAnualF']; ?></td>
                                         </tr>
                                       </tbody>
                                     </table>
@@ -769,7 +771,7 @@ require_once "../config/sesion.php";
             <!-- footer -->
             <!-- ============================================================== -->
             <footer class="footer text-center">
-               
+
             </footer>
             <!-- ============================================================== -->
             <!-- End footer -->
@@ -815,7 +817,7 @@ require_once "../config/sesion.php";
     <script src="views/librerias/utilitario/utilitario.js?v=1.1.1"></script>
     <script src="views/librerias/utilitario/sweetalert.min.js?v=1.1.1"></script>
     <script src="views/librerias/utilitario/dialogs.js?v=1.1.1"></script>
-    <input type="hidden" id="__FECHA_ACTUAL" value="<?php echo strftime("%Y-%m-%d"); ?>">    
+    <input type="hidden" id="__FECHA_ACTUAL" value="<?php echo strftime("%Y-%m-%d"); ?>">
 </body>
 
 </html>

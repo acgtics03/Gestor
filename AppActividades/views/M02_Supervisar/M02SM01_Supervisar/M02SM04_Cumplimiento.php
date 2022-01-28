@@ -15,6 +15,9 @@ $fecha_hoy = date('Y-m-d');
 $mes = date('m');
 $anio = date('Y');
 $primer_dia = $anio."-".$mes."-01";
+$URL= "";
+$URL = $HOST;
+
 ?>
 <head>
     <meta charset="utf-8">
@@ -54,7 +57,7 @@ $primer_dia = $anio."-".$mes."-01";
     <!-- ============================================================== -->
     <!-- Preloader - style you can find in spinners.css -->
     <!-- ============================================================== -->
-    
+
     <!-- ============================================================== -->
     <!-- Main wrapper - style you can find in pages.scss -->
     <!-- ============================================================== -->
@@ -108,12 +111,13 @@ $primer_dia = $anio."-".$mes."-01";
                 <!-- Start Page Content -->
                 <!-- ============================================================== -->
                 <!-- editor -->
+                <input type="hidden" name="" id="txtRuta" value="<?php echo $URL; ?>">
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
                                 <h4 class="card-title">Control de Actividades Registradas</h4>
-                                
+
                                 <div class="border-top">
                                     <div class="card-body">
                                         <div class="form-group row">
@@ -144,7 +148,7 @@ $primer_dia = $anio."-".$mes."-01";
                                                 <select class="cbx-texto" name="bxfiltroResponsablec" id="bxfiltroResponsablec">
                                                     <option selected="true" value="todos">TODOS</option>
                                                 </select>
-                                                
+
                                             </div>
                                             <div class="row col" style="margin-left: 1%;">
                                                 <label for="fname" class="col-sm-4 control-label col-form-label label-texto-sm">Cliente</label>
@@ -179,18 +183,18 @@ $primer_dia = $anio."-".$mes."-01";
                                                         ?>
                                                         <option value="<?php echo $TEstados['ID']; ?>"><?php echo $TEstados['Nombre']; ?></option>
                                                     <?php }  ?>
-                                                </select>                                                
+                                                </select>
                                             </div>
-                                            
+
                                         </div>
                                         <div class="form-group row" style="margin-left: 40%;">
                                             <div class="row col-2">
-                                                <button id="btnbuscarc" type="button" class="btn btn-registro-success"><i class="fas fa-search"></i> Buscar</button>                                            
+                                                <button id="btnbuscarc" type="button" class="btn btn-registro-success"><i class="fas fa-search"></i> Buscar</button>
                                             </div>
                                             <div class="row col-2" style="margin-left: 1%;">
-                                                <button id="btnlimpiarc" type="button" class="btn btn-registro-primary"><i class="fas fa-sync-alt"></i> Limpiar</button>                                             
-                                            </div>                                           
-                                        </div>                                        
+                                                <button id="btnlimpiarc" type="button" class="btn btn-registro-primary"><i class="fas fa-sync-alt"></i> Limpiar</button>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
 
@@ -207,7 +211,7 @@ $primer_dia = $anio."-".$mes."-01";
                                                     <th>ESTADO</th>
                                                     <th>CLIENTE</th>
                                                     <th>TAREAS</th>
-                                                    <th>NOMBRE</th>                                                    
+                                                    <th>NOMBRE</th>
                                                     <th>RESPONSABLE</th>
                                                 </tr>
                                             </thead>
@@ -223,10 +227,10 @@ $primer_dia = $anio."-".$mes."-01";
                                                     <th>REGISTRO</th>
                                                     <th>INICIO</th>
                                                     <th>FIN</th>
-                                                    <th>ESTADO</th>                                                    
+                                                    <th>ESTADO</th>
                                                     <th>CLIENTE</th>
                                                     <th>TAREAS</th>
-                                                    <th>NOMBRE</th>                                                    
+                                                    <th>NOMBRE</th>
                                                     <th>RESPONSABLE</th>
                                                 </tr>
                                             </thead>
@@ -334,7 +338,7 @@ $primer_dia = $anio."-".$mes."-01";
     <script src="../../librerias/utilitario/utilitario.js?v=1.1.1"></script>
     <script src="../../librerias/utilitario/sweetalert.min.js?v=1.1.1"></script>
     <script src="../../librerias/utilitario/dialogs.js?v=1.1.1"></script>
-    <input type="hidden" id="__FECHA_ACTUAL" value="<?php echo strftime("%Y-%m-%d"); ?>">    
+    <input type="hidden" id="__FECHA_ACTUAL" value="<?php echo strftime("%Y-%m-%d"); ?>">
 
 </body>
 

@@ -13,6 +13,9 @@ require_once "../../../../config/sesion.php";
 require_once "../../../controllers/ControllerCategorias.php";
 require_once "../../models/M02_Supervisar/M02MD01_Supervisar/datos_supervisor.php";
 $fecha_hoy = date('Y-m-d');
+$URL= "";
+$URL = $HOST;
+
 ?>
 <head>
     <meta charset="utf-8">
@@ -39,7 +42,7 @@ $fecha_hoy = date('Y-m-d');
 
     <link rel="stylesheet" type="text/css" href="../../main.css">
     <script src="../../js/popup_act.js"></script>
-    
+
     <link rel="stylesheet" href="../../datatables/datatables.min.css" />
     <link rel="stylesheet" href="../../datatables/DataTables-1.10.18/css/dataTables.bootstrap4.min.css" />
     <link rel="stylesheet" href="../../datatables/select/css/select.bootstrap4.min.css" />
@@ -55,7 +58,7 @@ $fecha_hoy = date('Y-m-d');
     <!-- ============================================================== -->
     <!-- Preloader - style you can find in spinners.css -->
     <!-- ============================================================== -->
-    
+
     <!-- ============================================================== -->
     <!-- Main wrapper - style you can find in pages.scss -->
     <!-- ============================================================== -->
@@ -109,9 +112,10 @@ $fecha_hoy = date('Y-m-d');
                 <!-- Start Page Content -->
                 <!-- ============================================================== -->
                 <div class="row">
+            <input type="hidden" name="" id="txtRuta" value="<?php echo $URL; ?>">      
             <div class="col-12 col-lg-12">
               <div class="card reg-tab2" style="color: white;">
-                <div class="card-header"><a href="M01SM02_Supervisar.php" style="color: white"><img src="../../image/espalda.png" width="30px" height="30px"> Volver a Supervisar</a></div>   
+                <div class="card-header"><a href="M01SM02_Supervisar.php" style="color: white"><img src="../../image/espalda.png" width="30px" height="30px"> Volver a Supervisar</a></div>
                 <div class="card-header">Buscar:
                   <div class="container">
                     <div class="row">
@@ -119,45 +123,45 @@ $fecha_hoy = date('Y-m-d');
                         <div class="table-responsive">
                            <form action="" method="post">
                                         <div class="modal-body" style="text-align: center">
-                                            
+
                                             <div style="display: inline-block">
                                                 <label style="color: white">Inicio :</label><br>
                                                 <input type="Date" class="filtros" name="fecini" id="fecini">
                                             </div>
-                                            
+
                                             <div style="display: inline-block; margin-left: 2%">
                                                 <label style="color: white">Termino :</label><br>
                                                 <input type="Date" class="filtros" name="fecfin" id="fecfin">
                                             </div>
-                                           
+
                                             <div style="display: inline-block; margin-left: 2%">
                                                 <label style="color: white">Responsable :</label><br>
-                                               
+
                                                 <select name="boxresponsable" id="boxresponsable" class="combo-box filtros">
                                                     <option class="f-box" selected="true" disabled="disabled">Seleccione...</option>
-                                                   
+
                                                 </select>
-                                               
+
                                             </div>
-                                            
+
                                             <div style="display: inline-block; margin-left: 2%">
                                                 <label style="color: white">Tipo :</label><br>
-                                                
+
                                                 <select name="boxtipo" id="boxtipo" class="combo-box filtros">
                                                     <option class="f-box" selected="true" disabled="disabled">Seleccione...</option>
                                                         <option class="f-box">PRODUCTO</option>
                                                         <option class="f-box">SERVICIO</option>
                                                         <option class="f-box">Todos</option>
                                                 </select>
-                                               
+
                                             </div>
                                             <div style="display: inline-block; margin-left: 2%">
                                                 <label style="color: white">Estado :</label><br>
-                                                
+
                                                 <select name="boxestado" id="boxestado" class="combo-box filtros">
                                                     <option class="f-box" selected="true" disabled="disabled">Seleccione...</option>
                                                 </select>
-                                               
+
                                             </div>
                                             <br><br>
                                             <div style="display: inline-block;">
@@ -178,7 +182,7 @@ $fecha_hoy = date('Y-m-d');
 
           </div>
           <!-- End container-fluid-->
-                
+
           <div class="row">
             <div class="col-12 col-lg-12">
               <div class="card reg-tab2">
@@ -203,19 +207,19 @@ $fecha_hoy = date('Y-m-d');
                             </thead>
                             <tbody style="color: white;">
                               <?php
-                                
-                                    //COMPLETAR TABLA 
+
+                                    //COMPLETAR TABLA
                                     $consultaAct2 = mysqli_query($conection, "SELECT a.idactividades as ID,a.descripcion as descripcion, t.nombre as nombre, a.fecha as fecha , a.Horaini as hini,
-                                    a.fechafin as fechafin, a.Horafin as hfin, a.estado as estado, concat(p.apellido,' ',p.nombre) as responsable FROM actividades a, persona p, usuario u, tipos t 
+                                    a.fechafin as fechafin, a.Horafin as hfin, a.estado as estado, concat(p.apellido,' ',p.nombre) as responsable FROM actividades a, persona p, usuario u, tipos t
                                     WHERE u.usuario=p.idusuario AND a.responsable=u.idusuario AND t.idgestion=a.nombre
                                     AND p.idJefeInmediato='$usr' AND a.identificador='DIARIO' AND (a.estado!='FINALIZADO' AND a.estado!='ELIMINADO')");
                                     while ($ps2 = mysqli_fetch_assoc($consultaAct2)) {
-                                
+
                                         $datos2 = $ps2['ID'] . "||" .
                                             $ps2['nombre'] . "||" .
                                             $ps2['descripcion'] . "||" .
                                             $ps2['responsable'];
-                                
+
                                     ?>
                                         <tr style="font-size: 12px;">
                                             <td><a href="" data-toggle="modal" data-target="#modalEdicion2" onclick="Trabajador('<?php echo $datos2; ?>')"><img src="image/reasignarr.png" width="35px" height="35px" alt=""></a>
@@ -246,15 +250,15 @@ $fecha_hoy = date('Y-m-d');
                             </tbody>
                           </table>
                         </div>
-                        
+
                                  <div class="modal fade" id="modalEdicion2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                                 <div class="modal-dialog modal-sm" role="document">
-                        
+
                                     <div class="modal-content ach">
                                         <div class="modal-header">
                                             <h4 class="modal-title t-titulo" id="myModalLabel">Datos Actividad</h4>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        
+
                                         </div>
                                         <div class="modal-body">
                                             <input type="text" hidden="" id="ID3" name="ID3">
@@ -273,7 +277,7 @@ $fecha_hoy = date('Y-m-d');
                                                 <input name="nombre4" type="Text" id="nombre4" class="c-campos" disabled>
                                             </div>
                                             <br><br>
-                                            
+
                                             <div style="display: inline-block">
                                                 <label class="titulo" style="color: red">Reasignar a :</label><br>
                                                 <?php $consulta = mysqli_query($conection, "SELECT idusuario as ID, concat(apellido,' ',nombre) as datos FROM persona ORDER BY apellido ASC"); ?>
@@ -288,17 +292,17 @@ $fecha_hoy = date('Y-m-d');
                                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                                 <button type="button" class="btn btn-warning" id="actualizadatos" data-dismiss="modal" style="background-color: rgb(26, 133, 196);  border-color: rgb(26, 133, 196);">Reasignar</button>
                                             </div>
-                                            
+
                                             <br><br>
                                         </div>
                                         <div class="modal-footer">
-        
+
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        
-                        
+
+
                       </div>
                     </div>
                   </div>
@@ -397,7 +401,7 @@ $fecha_hoy = date('Y-m-d');
     <script src="../../librerias/utilitario/utilitario.js?v=1.1.1"></script>
     <script src="../../librerias/utilitario/sweetalert.min.js?v=1.1.1"></script>
     <script src="../../librerias/utilitario/dialogs.js?v=1.1.1"></script>
-    <input type="hidden" id="__FECHA_ACTUAL" value="<?php echo strftime("%Y-%m-%d"); ?>">    
+    <input type="hidden" id="__FECHA_ACTUAL" value="<?php echo strftime("%Y-%m-%d"); ?>">
 
 </body>
 

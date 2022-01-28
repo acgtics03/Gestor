@@ -22,7 +22,7 @@ function Control() {
     BuscarActividadesGenerados();
     InicializarAtributosTablaBusquedaCabActividades();
     LlenarTablaActividadesGeneradosReporte();
-    
+
     LlenarFiltroResponsables();
     LlenarFechas();
 
@@ -41,7 +41,7 @@ function Control() {
     $('#btnbuscarc').click(function() {
        BuscarActividadesGenerados();
     });
-    
+
      $('#bxfiltroAreac').change(function() {
         $("#bxfiltroResponsablec").val("");
         var url = '../../models/M02_Supervisar/M02MD01_Supervisar/M02MD04_ListarTipos.php';
@@ -52,8 +52,8 @@ function Control() {
         document.getElementById('bxfiltroResponsablec').selectedIndex = 0;
         llenarCombo(url, datos, "bxfiltroResponsablec");
     });
-    
-    
+
+
     $('#btnlimpiarc').click(function() {
        BuscarActividadesGenerados();
        LlenarFiltroResponsables();
@@ -70,11 +70,11 @@ function LlenarFiltroResponsables(){
     var datos = {
         "btnListarFiltroResponsables": true
     }
-    llenarCombo(url, datos, "bxfiltroResponsablec");  
+    llenarCombo(url, datos, "bxfiltroResponsablec");
 }
 
 function LlenarFechas() {
-  
+
    bloquearPantalla("Buscando...");
     var data = {
         "btnLlenarFechas": true
@@ -88,15 +88,15 @@ function LlenarFechas() {
             desbloquearPantalla();
             if (dato.status == "ok") {
                 $("#txtfiltroFecInicioc").val(dato.fecha1);
-                $("#txtfiltroFecTerminoc").val(dato.fecha2);       
-            } 
+                $("#txtfiltroFecTerminoc").val(dato.fecha2);
+            }
         },
         error: function(error) {
             console.log(error);
             desbloquearPantalla();
         },
         timeout: timeoutDefecto
-    });          
+    });
 }
 
 
@@ -189,7 +189,7 @@ function LlenarTabalaActividadesGenerados(datos) {
             },
             { "data": "cliente" },
             { "data": "tareas" },
-            { "data": "nombre" },            
+            { "data": "nombre" },
             { "data": "dato" }
         ],
         "select": {
@@ -261,7 +261,7 @@ function LlenarTablaActividadesGeneradosReporte() {
             { "data": "descEstado" },
             { "data": "cliente" },
             { "data": "tareas" },
-            { "data": "nombre" },            
+            { "data": "nombre" },
             { "data": "dato" }
         ],
         "language": {
@@ -370,7 +370,7 @@ function BuscarTareasGenerado(codigo) {
 }
 
 function respuestaBuscarMovimientoDetalleGenerado(dato) {
-    desbloquearPantalla();   
+    desbloquearPantalla();
     CargarTablaBusquedaDetalleMovimientoGenerado(dato.data);
 }
 
@@ -438,9 +438,9 @@ function CargarTablaBusquedaDetalleMovimientoGenerado(data) {
 
 
 /************************************--------------REASIGNAR --------------------****************************/
- 
+
 function AbrirModalReasignar(id) {
-  
+
    //$('#modalReasignar').modal('show');
    bloquearPantalla("Buscando...");
     var data = {
@@ -459,7 +459,7 @@ function AbrirModalReasignar(id) {
 
                 $("#txtidactividad").val(resultado.id);
                 $("#bxNombreActividadParticipantes").val(resultado.nombre);
-                $("#txtFechaInicioParticipantes").val(resultado.fechaini);                
+                $("#txtFechaInicioParticipantes").val(resultado.fechaini);
                 $("#txtFechaTerminoParticipantes").val(resultado.fechafin);
                 $("#bxClienteParticipantes").val(resultado.cliente);
                 $("#bxEstadoParticipantes").val(resultado.estado);
@@ -477,11 +477,11 @@ function AbrirModalReasignar(id) {
             desbloquearPantalla();
         },
         timeout: timeoutDefecto
-    });          
+    });
 }
 
 function Reasignar() {
-  
+
    //$('#modalReasignar').modal('show');
    bloquearPantalla("Buscando...");
     var data = {
@@ -499,7 +499,7 @@ function Reasignar() {
             desbloquearPantalla();
             if (dato.status == "ok") {
                 mensaje_alerta("¡Correcto!", dato.data, "success");
-                BuscarActividadesGenerados();          
+                BuscarActividadesGenerados();
             } else {
                 mensaje_alerta("¡Error al Reasignar!", dato.data, "info");
             }
@@ -509,18 +509,19 @@ function Reasignar() {
             desbloquearPantalla();
         },
         timeout: timeoutDefecto
-    });          
+    });
 }
 
 
 /************************************-------------  BOTON DE CERRAR SESION ---------------**********************/
 
-function ConsultaCerrarSesion() { 
+function ConsultaCerrarSesion() {
   mensaje_sesion("Al confirmar saldrá del Modulo de Actividades.", CerrarSesion);
 }
 
 function CerrarSesion(){
-    window.location.replace('https://acg-soft.com/ti/extranet/');  
+  var url = $("#txtRuta").val();
+    window.location.replace(url);  
 }
 
 
@@ -536,18 +537,18 @@ function ValidarPerfil(){
         success: function (dato) {
             desbloquearPantalla();
             if (dato.status == "ok") {
-                
+
                var x = document.getElementById("bxfiltroAreac");
                 x.style.display = "block";
 
 
             } else {
-                
+
                 var x = document.getElementById("bxfiltroAreac");
                 x.style.display = "none";
 
             }
-            
+
             var y = document.getElementById("btnSuper");
                 y.style.display = "block";
 
@@ -559,5 +560,3 @@ function ValidarPerfil(){
         timeout: timeoutDefecto
     });
 }
-
-

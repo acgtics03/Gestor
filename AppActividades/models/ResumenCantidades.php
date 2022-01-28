@@ -7,10 +7,10 @@
     //CONEXIÓN A BD
     require '../config/conexion_app.php';
     $username = $_SESSION['usu'];
-    
+
     $consulta_id = mysqli_query($conection, "SELECT idusuario FROM usuario WHERE usuario='$username'");
     $consulta_idr = mysqli_fetch_assoc($consulta_id);
-    
+
     $ids = $consulta_idr['idusuario'];
 
     //GENERAL ACTIVIDADES PROPIAS
@@ -18,30 +18,30 @@
         //TOTAL ACTIVIDADES
         $consultax = mysqli_query($conection, "SELECT count(idactividades) as total FROM actividades  WHERE responsable='$ids' AND estado!='5'");
         $consultaax = mysqli_fetch_assoc($consultax);
-    
+
         //Total de Actividades detenidos
         $consultad = mysqli_query($conection, "SELECT count(idactividades) as totalPd FROM actividades WHERE tipo_actividad='PROPIO' AND responsable='$ids' AND estado='4'");
         $consultaad = mysqli_fetch_assoc($consultad);
-        
+
         //Total de Actividades eliminados
         $consulta_eliminados_act = mysqli_query($conection, "SELECT count(idactividades) as total FROM actividades WHERE tipo_actividad='PROPIO' AND responsable='$ids' AND estado='5'");
         $consulta_eliminados_actr = mysqli_fetch_assoc($consulta_eliminados_act);
 
    //GENERAL ACTIVIDADES EN PARTICIPACION
-       
+
         //Total de Actividades participante
         $consultaActPart = mysqli_query($conection, "SELECT count(pt.idparticipante) as totalActPart FROM participantes_tareas pt, actividades act WHERE pt.idactividad=act.idactividades AND act.responsable!=pt.participante AND pt.participante='$ids' AND act.estado!='5'");
         $consultaActParticipacion = mysqli_fetch_assoc($consultaActPart);
 
         $suma_actividadesp = $consultaActParticipacion['totalActPart'];
 
-    
+
         //Total de Actividades participante detenidos
         $consultaActPartDet = mysqli_query($conection, "SELECT count(pt.idparticipante) as totalActPart FROM participantes_tareas pt, actividades act WHERE pt.idactividad=act.idactividades AND act.responsable!=pt.participante AND pt.participante='$ids' AND act.estado='4'");
         $consultaActParticipacionDet = mysqli_fetch_assoc($consultaActPartDet);
 
         $total_actividadesd = $consultaActParticipacionDet['totalActPart'];
-        
+
 
         //Total de Actividades participante eliminado
         $consultaActPartEli = mysqli_query($conection, "SELECT count(pt.idparticipante) as totalActPartEli FROM participantes_tareas pt, actividades act WHERE pt.idactividad=act.idactividades AND act.responsable!=pt.participante AND pt.participante='$ids' AND act.estado='5'");
@@ -50,44 +50,44 @@
         $total_actividadese = $consultaActParticipacionEli['totalActPartEli'];
 
     //-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-    
-    
+
+
 
     //Total de Productos
     $consultaP = mysqli_query($conection, "SELECT count(idps) as totalPr FROM producto_servicio WHERE responsable='$ids' AND categoria='PRODUCTO' AND estado!='ELIMINADO'");
     $consultaaP = mysqli_fetch_assoc($consultaP);
-    
+
         //Total de Productos detenidos
         $consultaPd = mysqli_query($conection, "SELECT count(idps) as totalPrd FROM producto_servicio WHERE responsable='$ids' AND categoria='PRODUCTO' AND estado='DETENIDO'");
         $consultaaPd = mysqli_fetch_assoc($consultaPd);
-        
+
         //Total de Productos eliminados
         $consulta_eliminados_prod = mysqli_query($conection, "SELECT count(idps) as total FROM producto_servicio WHERE responsable='$ids' AND categoria='PRODUCTO' AND estado='ELIMINADO'");
         $consulta_eliminados_prodr = mysqli_fetch_assoc($consulta_eliminados_prod);
-        
+
     //-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-    
-    
+
+
 
     //Total de Servicios
     $consultaF = mysqli_query($conection, "SELECT count(idps) as totalPf FROM producto_servicio WHERE responsable='$ids' AND categoria='SERVICIO' AND estado!='ELIMINADO'");
     $consultaaF = mysqli_fetch_assoc($consultaF);
-    
+
         //Total de Servicios detenidos
         $consultaFd = mysqli_query($conection, "SELECT count(idps) as totalPfd FROM producto_servicio WHERE responsable='$ids' AND categoria='SERVICIO' AND estado='DETENIDO'");
         $consultaaFd = mysqli_fetch_assoc($consultaFd);
-        
+
         //Total de Servicios eliminados
         $consulta_eliminados_serv = mysqli_query($conection, "SELECT count(idps) as total FROM producto_servicio WHERE responsable='$ids' AND categoria='SERVICIO' AND estado='ELIMINADO'");
         $consulta_eliminados_servr = mysqli_fetch_assoc($consulta_eliminados_serv);
-        
+
     //-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-    
-    
-    
+
+
+
 
    //VARIABLES MES Y AÑO
-   
+
         function fechaCastellano ($fecha) {
           $fecha = substr($fecha, 0, 10);
           $mes = date('F', strtotime($fecha));
@@ -96,14 +96,14 @@
           $nombreMes = str_replace($meses_EN, $meses_ES, $mes);
           return $nombreMes;
         }
-  
+
     $des_year = date('Y');
     $des_mes = fechaCastellano(date('Y-m-d'));
 
 
 
     //Variables GRAFICA 01 - ACTIVIDADES
-  
+
     $consultaAT = mysqli_query($conection, "SELECT count(idactividades) as ATT FROM actividades WHERE tipo_actividad='PROPIO' AND responsable='$ids'");
     $consultaaAT = mysqli_fetch_assoc($consultaAT);
 
@@ -119,7 +119,7 @@
     //Resumen tabla - Actividades
 
         //dia
-        
+
         $consultaDP = mysqli_query($conection, "SELECT count(idactividades) as TotDP FROM actividades WHERE tipo_actividad='PROPIO' AND fecha='$fecha' AND responsable='$ids' AND estado='1'");
         $consultaaDP = mysqli_fetch_assoc($consultaDP);
 
@@ -129,7 +129,7 @@
         $consultaDF = mysqli_query($conection, "SELECT count(idactividades) as TotDF FROM actividades WHERE tipo_actividad='PROPIO' AND fechafin='$fecha' AND responsable='$ids' AND estado='3'");
         $consultaaDF = mysqli_fetch_assoc($consultaDF);
 
-        $SUMAADia = $consultaaDP['TotDP'] + $consultaaDF['TotDF']; 
+        $SUMAADia = $consultaaDP['TotDP'] + $consultaaDF['TotDF'];
 
         //Semana
 
@@ -210,41 +210,41 @@
 
 
     //Variables GRAFICA 02 - ACTIVIDADES PARTICIPANTES
-    
+
         // Estado : TOTAL
-        
+
         $consultaACT = mysqli_query($conection, "SELECT count(pt.idparticipante) as totalActPar FROM participantes_tareas pt, actividades act WHERE pt.idactividad=act.idactividades AND act.responsable!=pt.participante AND pt.participante='$ids' AND act.estado!='5'");
         $consultaaACT = mysqli_fetch_assoc($consultaACT);
-        
-        
+
+
         $SUM1 = $consultaaACT['totalActPar'];
-        
-        
+
+
         // Estado : PLANIFICADO
-        
+
         $consultaACT2= mysqli_query($conection, "SELECT count(pt.idparticipante) as totalActPar FROM participantes_tareas pt, actividades act WHERE pt.idactividad=act.idactividades AND act.responsable!=pt.participante AND pt.participante='$ids' AND act.estado='1'");
         $consultaaACT2 = mysqli_fetch_assoc($consultaACT2);
-        
-        
+
+
         $totalSUM2 = $consultaaACT2['totalActPar'];
-        
-        
+
+
         // Estado : PROCESO
 
         $consultaACT3 = mysqli_query($conection, "SELECT count(pt.idparticipante) as totalActPar FROM participantes_tareas pt, actividades act WHERE pt.idactividad=act.idactividades AND act.responsable!=pt.participante AND pt.participante='$ids' AND act.estado='2'");
         $consultaaACT3= mysqli_fetch_assoc($consultaACT3);
-        
+
         $totalSUM3 = $consultaaACT3['totalActPar'];
-        
+
         // Estado : FINALIZADO
-    
+
         $consultaACT4 = mysqli_query($conection, "SELECT count(pt.idparticipante) as totalActPar FROM participantes_tareas pt, actividades act WHERE pt.idactividad=act.idactividades AND act.responsable!=pt.participante AND pt.participante='$ids' AND act.estado='3'");
         $consultaaACT4 = mysqli_fetch_assoc($consultaACT4);
-        
+
         $totalSUM4 = $consultaaACT4['totalActPar'];
-         
+
         $tot_participante = $totalSUM2 + $totalSUM3 + $totalSUM4;
-  
+
     //Resumen tabla
 
         //dia
@@ -268,7 +268,7 @@
         $s3 = $consultaaAPDPC2['totalActPar'];
 
         $SUMAAPDia = $s1 + $s2 + $s3;
-    
+
         //semana
 
         $dia2 = date('l');
@@ -337,7 +337,7 @@
 
         $consultaAPSemF = mysqli_query($conection, "SELECT count(pt.idparticipante) as totalActPar FROM participantes_tareas pt, actividades act WHERE pt.idactividad=act.idactividades AND act.responsable!=pt.participante AND pt.participante='$ids' AND act.estado='3' AND act.fechafin BETWEEN '$inicio2' AND '$final2'");
         $consultaaAPSemF = mysqli_fetch_assoc($consultaAPSemF);
-        
+
         $s6 = $consultaaAPSemF['totalActPar'];
 
 
@@ -346,19 +346,19 @@
         //mes
 
         $consultaAPMesP = mysqli_query($conection, "SELECT count(pt.idparticipante) as totalActPar FROM participantes_tareas pt, actividades act WHERE pt.idactividad=act.idactividades AND act.responsable!=pt.participante AND pt.participante='$ids' AND act.estado='1' AND MONTH(fecha) = MONTH('$fecha')");
-        $consultaaAPMesP = mysqli_fetch_assoc($consultaAPMesP);  
+        $consultaaAPMesP = mysqli_fetch_assoc($consultaAPMesP);
 
         $s7 = $consultaaAPMesP['totalActPar'];
 
 
         $consultaAPMesPC = mysqli_query($conection, "SELECT count(pt.idparticipante) as totalActPar FROM participantes_tareas pt, actividades act WHERE pt.idactividad=act.idactividades AND act.responsable!=pt.participante AND pt.participante='$ids' AND act.estado='2' AND MONTH(fecha) = MONTH('$fecha')");
-        $consultaaAPMesPC = mysqli_fetch_assoc($consultaAPMesPC);  
+        $consultaaAPMesPC = mysqli_fetch_assoc($consultaAPMesPC);
 
         $s8= $consultaaAPMesPC['totalActPar'];
 
 
         $consultaAPMesF = mysqli_query($conection, "SELECT count(pt.idparticipante) as totalActPar FROM participantes_tareas pt, actividades act WHERE pt.idactividad=act.idactividades AND act.responsable!=pt.participante AND pt.participante='$ids' AND act.estado='3' AND MONTH(fechafin) = MONTH('$fecha')");
-        $consultaaAPMesF = mysqli_fetch_assoc($consultaAPMesF);  
+        $consultaaAPMesF = mysqli_fetch_assoc($consultaAPMesF);
 
         $s9 = $consultaaAPMesF['totalActPar'];
 
@@ -384,7 +384,7 @@
 
         $consultaMensP = mysqli_query($conection, "SELECT count(idps) as TotMensP FROM producto_servicio WHERE MONTH(fecinicio) = MONTH('$fecha') and responsable='$ids' AND estado='PLANIFICADO' AND categoria='PRODUCTO'");
         $consultaaMensP = mysqli_fetch_assoc($consultaMensP);
-        
+
         $consultaMensPC = mysqli_query($conection, "SELECT count(idps) as TotMensPC FROM producto_servicio WHERE MONTH(fecinicio) = MONTH('$fecha') and responsable='$ids' AND estado='PROCESO' AND categoria='PRODUCTO'");
         $consultaaMensPC = mysqli_fetch_assoc($consultaMensPC);
 
@@ -394,11 +394,12 @@
         $SUMAProMes = $consultaaMensP['TotMensP'] + $consultaaMensF['TotMensF'];
 
         //trimestral
-    
+
         $dia3 = intval(date('m'));
         $año = date('Y');
 
-
+        $fini="";
+        $ffin="";
         if('01' < $dia3 && $dia3 <'04'){
            $fini= $año.'-01-01';
            $ffin= $año.'-03-31';
@@ -421,7 +422,7 @@
 
         $consultaTrimP = mysqli_query($conection, "SELECT count(idps) as TotTrimP FROM producto_servicio WHERE fecinicio BETWEEN '$fini' AND '$ffin' AND responsable='$ids' AND estado='PLANIFICADO' AND categoria='PRODUCTO'");
         $consultaaTrimP = mysqli_fetch_assoc($consultaTrimP);
-        
+
         $consultaTrimPC = mysqli_query($conection, "SELECT count(idps) as TotTrimPC FROM producto_servicio WHERE fecinicio BETWEEN '$fini' AND '$ffin' AND responsable='$ids' AND estado='PROCESO' AND categoria='PRODUCTO'");
         $consultaaTrimPC = mysqli_fetch_assoc($consultaTrimPC);
 
@@ -435,7 +436,7 @@
 
         $consultaAnualP = mysqli_query($conection, "SELECT count(idps) as TotAnualP FROM producto_servicio WHERE YEAR(fecinicio) = YEAR('$fecha') and responsable='$ids' AND estado='PLANIFICADO' AND categoria='PRODUCTO'");
         $consultaaAnualP = mysqli_fetch_assoc($consultaAnualP);
-        
+
         $consultaAnualPC = mysqli_query($conection, "SELECT count(idps) as TotAnualPC FROM producto_servicio WHERE YEAR(fecinicio) = YEAR('$fecha') and responsable='$ids' AND estado='PROCESO' AND categoria='PRODUCTO'");
         $consultaaAnualPC = mysqli_fetch_assoc($consultaAnualPC);
 
@@ -463,7 +464,7 @@
 
       $consultaSrvMensP = mysqli_query($conection, "SELECT count(idps) as TotSrvMensP FROM producto_servicio WHERE MONTH(fecinicio) = MONTH('$fecha') and responsable='$ids' AND estado='PLANIFICADO' AND categoria='SERVICIO'");
       $consultaaSrvMensP = mysqli_fetch_assoc($consultaSrvMensP);
-      
+
       $consultaSrvMensPC = mysqli_query($conection, "SELECT count(idps) as TotSrvMensPC FROM producto_servicio WHERE MONTH(fecinicio) = MONTH('$fecha') and responsable='$ids' AND estado='PROCESO' AND categoria='SERVICIO'");
       $consultaaSrvMensPC = mysqli_fetch_assoc($consultaSrvMensPC);
 
@@ -473,11 +474,12 @@
       $SUMASrvMes = $consultaaSrvMensP['TotSrvMensP'] + $consultaaSrvMensF['TotSrvMensF'];
 
       //trimestral
-  
+
       $dia4 = intval(date('m'));
       $año = date('Y');
 
-
+      $fini2="";
+      $ffin2="";
       if('01' < $dia4 && $dia4 <'04'){
          $fini2= $año.'-01-01';
          $ffin2= $año.'-03-31';
@@ -500,7 +502,7 @@
 
       $consultaSrvTrimP = mysqli_query($conection, "SELECT count(idps) as TotSrvTrimP FROM producto_servicio WHERE fecinicio BETWEEN '$fini2' AND '$ffin2' AND responsable='$ids' AND estado='PLANIFICADO'  AND categoria='SERVICIO'");
       $consultaaSrvTrimP = mysqli_fetch_assoc($consultaSrvTrimP);
-      
+
       $consultaSrvTrimPC = mysqli_query($conection, "SELECT count(idps) as TotSrvTrimPC FROM producto_servicio WHERE fecinicio BETWEEN '$fini2' AND '$ffin2' AND responsable='$ids' AND estado='PROCESO' AND categoria='SERVICIO'");
       $consultaaSrvTrimPC = mysqli_fetch_assoc($consultaSrvTrimPC);
 
@@ -514,7 +516,7 @@
 
       $consultaSrvAnualP = mysqli_query($conection, "SELECT count(idps) as TotSrvAnualP FROM producto_servicio WHERE YEAR(fecinicio) = YEAR('$fecha') and responsable='$ids' AND estado='PLANIFICADO' AND categoria='SERVICIO'");
       $consultaaSrvAnualP = mysqli_fetch_assoc($consultaSrvAnualP);
-      
+
       $consultaSrvAnualPC = mysqli_query($conection, "SELECT count(idps) as TotSrvAnualPC FROM producto_servicio WHERE YEAR(fecinicio) = YEAR('$fecha') and responsable='$ids' AND estado='PROCESO' AND categoria='SERVICIO'");
       $consultaaSrvAnualPC = mysqli_fetch_assoc($consultaSrvAnualPC);
 
