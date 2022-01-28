@@ -460,7 +460,7 @@ function LlenarTablaActividadesGenerados(datos) {
                     <button class="btn btn-info btn-edit-action"  onclick="AbrirModalParticipantes(\'' + data + '\')"><i class="fas fa-users"></i></button>\
                     <button class="btn btn-info btn-delete-action"  onclick="AbrirModalEliminarActividad(\'' + data + '\')"><i class="fas fa-trash"></i></button>\
                     <button class="btn btn-info btn-success-action"  onclick="AbrirModalFinalizarActividad(\'' + data + '\')"><i class="fas  fa-clipboard-check"></i></button>\
-                    <button class="btn btn-info btn-edit-action"  onclick="AbrirModalComentariosActividades(\'' + data + '\')" hidden><i class="fas fa-comment-dots"></i></button>';
+                    <button class="btn btn-info btn-comments-action"  onclick="AbrirModalComentariosActividades(\'' + data + '\')" hidden><i class="fas fa-comments"></i></button>';
                 }
             },
             { "data": "registro" },
@@ -1584,11 +1584,11 @@ function FinalizarActividad(idact){
 
 
 function AbrirModalComentariosActividades(id){
-   $('#modalComentariosActividad').modal('show');
-   /*
+  // $('#modalComentariosActividad').modal('show');
+   
    bloquearPantalla("Buscando...");
     var data = {
-        "btnCargarDatosEliminarActividad": true,
+        "btnCargarComentariosActividad": true,
         "IdRegistro": id
     };
     $.ajax({
@@ -1608,7 +1608,7 @@ function AbrirModalComentariosActividades(id){
                 $("#txtFecInicioActivi").val(resultado.fechaini);
                 $("#txtFecTerminoActivi").val(resultado.fechafin);
 
-                $('#modalEliminarActividad').modal('show');
+                $('#modalComentariosActividad').modal('show');
                 return;
 
             } else {
@@ -1620,7 +1620,7 @@ function AbrirModalComentariosActividades(id){
             desbloquearPantalla();
         },
         timeout: timeoutDefecto
-    });*/
+    });
 }
 
 
