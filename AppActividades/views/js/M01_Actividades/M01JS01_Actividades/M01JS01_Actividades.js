@@ -460,7 +460,7 @@ function LlenarTablaActividadesGenerados(datos) {
                     <button class="btn btn-info btn-edit-action"  onclick="AbrirModalParticipantes(\'' + data + '\')"><i class="fas fa-users"></i></button>\
                     <button class="btn btn-info btn-delete-action"  onclick="AbrirModalEliminarActividad(\'' + data + '\')"><i class="fas fa-trash"></i></button>\
                     <button class="btn btn-info btn-success-action"  onclick="AbrirModalFinalizarActividad(\'' + data + '\')"><i class="fas  fa-clipboard-check"></i></button>\
-                    <button class="btn btn-info btn-comments-action"  onclick="AbrirModalComentariosActividades(\'' + data + '\')" hidden><i class="fas fa-comments"></i></button>';
+                    <button class="btn btn-info btn-comments-action"  onclick="AbrirModalComentariosActividades(\'' + data + '\')"><i class="fas fa-comments"></i></button>';
                 }
             },
             { "data": "registro" },
