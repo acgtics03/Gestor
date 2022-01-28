@@ -613,6 +613,19 @@ table.table-bordered.dataTable td {
     border-color: #3a8aee;
 }
 
+.btn-comments-action {
+    color: #5DE2DE;
+    background-color: #fff;
+    border-color: #fff;
+    padding: 0px 5px;
+}
+
+.btn-comments-action:hover {
+    color: #fff;
+    background-color: #3a8aee;
+    border-color: #3a8aee;
+}
+
 .btn-delete-action {
     color: #fb5454;
     background-color: #fff;
