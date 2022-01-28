@@ -937,7 +937,7 @@ function CargarTablaTareas(data) {
                 "render": function(data, type, row) {
                     return '<button class="btn btn-edit-action"   onclick="AbrirModalUpdateTareas(\'' + data + '\')"><i class="fas fa-pencil-alt"></i></button>\
                     <button class="btn btn-info btn-delete-action"  onclick="AbrirModalEliminarTareas(\'' + data + '\')"><i class="fas fa-trash"></i></button>\
-                    <button class="btn btn-info btn-edit-action"  onclick="AbrirModalEliminar(\'' + data + '\')" hidden><i class="fas fa-comment-dots"></i></button>';
+                    <button class="btn btn-info btn-comments-action"  onclick="AbrirModalComentariosTareas(\'' + data + '\')"><i class="fas fa-comments"></i></button>';
                 }
             },
             { "data": "registro" },
