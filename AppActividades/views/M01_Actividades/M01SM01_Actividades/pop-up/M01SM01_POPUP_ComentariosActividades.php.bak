@@ -158,7 +158,7 @@
 							  class="feather feather-smile">
 							<circle cx="12" cy="12" r="10" />
 							<path d="M8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01" /></svg>	
-							<div style="margin-left: 30px;">
+							<div class="center">
 								<button id="guardar" type="button" class="btn btn-registro" style="width: 100%; padding: 0px 20px;"> PUBLICAR COMENTARIO</button>
 							</div>								
 						</div>

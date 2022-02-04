@@ -622,7 +622,7 @@ $URL = $HOST;
     <script type="text/javascript" src="../../main.js"></script>
 
     <script src="../../js/M01_Actividades/M01JS01_Actividades/M01JS01_Actividades.js?v=1.1.1"></script>
-    <script src="../../js/chat.js?v=1.1.1"></script>
+    <script src="../../js/M01_Actividades/M01JS01_Actividades/chat.js?v=1.1.1"></script>
     <script src="../../librerias/utilitario/jquery.blockUI.min.js?v=1.1.1"></script>
     <script src="../../librerias/utilitario/utilitario.js?v=1.1.1"></script>
     <script src="../../librerias/utilitario/sweetalert.min.js?v=1.1.1"></script>

@@ -842,6 +842,7 @@ function GuardarPopup() {
 
 function AbrirModalTareas(id) {
     LlenarNombresActividadTarea()
+	print(LlenarNombresActividadTarea)
   // $('#modalRegistrar').modal('show');
    bloquearPantalla("Buscando...");
     var data = {
