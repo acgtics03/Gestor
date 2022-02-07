@@ -842,7 +842,6 @@ function GuardarPopup() {
 
 function AbrirModalTareas(id) {
     LlenarNombresActividadTarea()
-	print(LlenarNombresActividadTarea)
   // $('#modalRegistrar').modal('show');
    bloquearPantalla("Buscando...");
     var data = {
@@ -1587,16 +1586,16 @@ function FinalizarActividad(idact){
 function AbrirModalComentariosActividades(id){
    LlenarTipoActividadPopup();
    LlenarResponsablesPopup();
-   $('#modalComentariosActividad').modal('show');
+   //$('#modalComentariosActividad').modal('show');
    
-   /*bloquearPantalla("Buscando...");
+   bloquearPantalla("Buscando...");
     var data = {
         "btnCargarComentariosActividad": true,
         "IdRegistro": id
     };
     $.ajax({
         type: "POST",
-        url: "../../models/M01_Actividades/M01MD01_Actividades/M01MD05_Procesos.php",
+        url: "../../models/M01_Actividades/M01MD01_Actividades/M01MD08_Comentarios.php",
         data: data,
         dataType: "json",
         success: function(dato) {
@@ -1604,12 +1603,17 @@ function AbrirModalComentariosActividades(id){
             if (dato.status == "ok") {
                 var resultado = dato.data;
 
-                $("#txtIdActividad").val(resultado.id);
-                $("#bxNombreActivi").val(resultado.nombre);
-                $("#bxClienteActivi").val(resultado.cliente);
-                $("#bxResponsableActivi").val(resultado.responsable);
-                $("#txtFecInicioActivi").val(resultado.fechaini);
-                $("#txtFecTerminoActivi").val(resultado.fechafin);
+                $("#txtIDActividadPopup").val(resultado.id);
+                $("#bxNombreActividadPopup").val(resultado.nombre);
+                $("#txtDescripcionPopup").val(resultado.descripcion);
+                $("#bxResponsablePopup").val(resultado.responsable);
+                $("#txtFechaInicioPopup").val(resultado.fechaini);
+                $("#txtFechaTerminoPopup").val(resultado.fechafin);
+                $("#txtHoraInicioPopup").val(resultado.Horaini);
+                $("#txtMinutosInicioPopup").val(resultado.Minutosini);
+                $("#txtHoraTerminoPopup").val(resultado.Horafin);
+                $("#txtMinutosTerminoPopup").val(resultado.Minutosfin);
+                $("#bxEstadoPopup").val(resultado.estado);
 
                 $('#modalComentariosActividad').modal('show');
                 return;
@@ -1623,7 +1627,7 @@ function AbrirModalComentariosActividades(id){
             desbloquearPantalla();
         },
         timeout: timeoutDefecto
-    });*/
+    });
 }
 
 

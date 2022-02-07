@@ -6,6 +6,7 @@
             <span><i class="fa fa-list" aria-hidden="true"></i> Comentarios de la Actividad</span>
         </div>
         <div class="modal-body" style="width: 900px;">
+		
             <input type="hidden" id="txtIDActividadTareas">   
 			
 				<label for="" class="label-texto">DATOS DE LA ACTIVIDAD</label>
@@ -51,9 +52,10 @@
 							<input type="date" id="txtFechaTerminoPopup" class="caja-texto">
 						</div>
 						<div class="col-md-6">
-							<label for="" class="label-texto">Hr Inicio 
-								<small id="txtFechaBajaRegistroHtml" class="form-text text-muted-validacion text-danger ocultar-info"></small>
-							</label>
+							<label for="" class="label-texto">Hr Inicio <small id="txtFechaBajaRegistroHtml"
+								class="form-text text-muted-validacion text-danger ocultar-info">
+							</small></label>
+
 							<div class="row">
 								<div class="col">
 									<input type="number" class="caja-texto" name="txtHoraInicioPopup" id="txtHoraInicioPopup" list="horas" placeholder="Horas" onKeyDown="limitText(this,2);" onKeyUp="limitText(this,2);">
@@ -82,13 +84,16 @@
 								</div>
 							</div>
 						</div>
+						
+						
 						<div class="col-md-6">
-							<label for="" class="label-texto">Hr Fin
-								<small id="txtFechaBajaRegistroHtml" class="form-text text-muted-validacion text-danger ocultar-info"></small>
-							</label>
+							<label class="label-texto">Hr Termino <small id="boxmotivo_eliminarHtml"
+								class="form-text text-muted-validacion text-danger ocultar-info">
+							</small></label>
+
 							<div class="row">
 								<div class="col">
-									<input type="number" class="caja-texto" name="txtHoraInicioRealPopup" id="txtHoraInicioRealPopup" list="horas" placeholder="Horas" onKeyDown="limitText(this,2);" onKeyUp="limitText(this,2);">
+									<input type="number" class="caja-texto" name="txtHoraTerminoPopup" id="txtHoraTerminoPopup" list="horas" placeholder="Horas" onKeyDown="limitText(this,2);" onKeyUp="limitText(this,2);">
 									<datalist id="horas">
 										<?php
 										$Horas = new ControllerCategorias();
@@ -101,7 +106,7 @@
 								</div>
 								<label for="">:</label>
 								<div class="col">
-									<input type="number" class="caja-texto" name="txtMinutosInicioRealPopup" id="txtMinutosInicioRealPopup" list="Minutos" placeholder="Minutos" onKeyDown="limitText(this,2);" onKeyUp="limitText(this,2);">
+									<input type="number" class="caja-texto" name="txtMinutosTerminoPopup" id="txtMinutosTerminoPopup" list="Minutos" placeholder="Minutos" onKeyDown="limitText(this,2);" onKeyUp="limitText(this,2);">
 									<datalist id="Minutos">
 										<?php
 										$Minutos = new ControllerCategorias();
@@ -112,7 +117,7 @@
 										<?php }  ?>
 									</datalist>  
 								</div>
-							</div>
+							</div>                                             
 						</div>
 					</div>
 					<div class="form-row">
@@ -148,7 +153,7 @@
 							</div>
 						</div>
 						
-						<div class="chat-area-footer" style="border-top: none !important; padding:0px !important;">
+						<div class="chat-area-footer" style="border-top: none !important; padding:0px !important; position: inherit !important;">
 							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
 							  class="feather feather-image">
 							<rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
