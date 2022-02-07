@@ -33,14 +33,8 @@ if (isset($_POST['btnCargarComentariosActividad'])) {
           date_format(act.Horaini, '%i') as Minutosini,
           date_format(act.Horafin, '%H') as Horafin,
           date_format(act.Horafin, '%i') as Minutosfin,
-          date_format(act.Horainireal, '%H') as Horainireal,
-          date_format(act.Horainireal, '%i') as Minutosinireal,
-          date_format(act.Horafinreal, '%H') as Horafinreal,
-          date_format(act.Horafinreal, '%i') as Minutosfinreal,
           act.responsable as responsable,
-          act.estado as estado,
-          act.empresa as cliente,
-          act.area as tipo
+          act.estado as estado
       FROM actividades act
       WHERE act.idactividades='$IdReg'");
        if ($query->num_rows > 0) {
@@ -69,8 +63,8 @@ if (isset($_POST['btnCargarComentariosActividad'])) {
 
 if(isset($_POST['btnActualizarActividad'])){
 
-        $txtIDActividadPopup = isset($_POST['txtIDActividadPopup']) ? $_POST['txtIDActividadPopup'] : Null;
-        $txtIDActividadPopupr = trim($txtIDActividadPopup);   
+        $txtIDActividadTareas = isset($_POST['txtIDActividadTareas']) ? $_POST['txtIDActividadTareas'] : Null;
+        $txtIDActividadPopupr = trim($txtIDActividadTareas);   
 
         $bxNombreActividadPopup = isset($_POST['bxNombreActividadPopup']) ? $_POST['bxNombreActividadPopup'] : Null;
         $bxNombreActividadPopupr = trim($bxNombreActividadPopup);   

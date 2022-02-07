@@ -63,8 +63,8 @@ if (isset($_POST['btnCargarComentariosActividad'])) {
 
 if(isset($_POST['btnActualizarActividad'])){
 
-        $txtIDActividadPopup = isset($_POST['txtIDActividadPopup']) ? $_POST['txtIDActividadPopup'] : Null;
-        $txtIDActividadPopupr = trim($txtIDActividadPopup);   
+        $txtIDActividadComentarios = isset($_POST['txtIDActividadComentarios']) ? $_POST['txtIDActividadTareas'] : Null;
+        $txtIDComentariosopupr = trim($txtIDActividadComentarios);   
 
         $bxNombreActividadPopup = isset($_POST['bxNombreActividadPopup']) ? $_POST['bxNombreActividadPopup'] : Null;
         $bxNombreActividadPopupr = trim($bxNombreActividadPopup);   

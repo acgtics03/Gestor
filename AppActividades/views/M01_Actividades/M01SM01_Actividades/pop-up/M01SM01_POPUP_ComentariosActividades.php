@@ -7,14 +7,14 @@
         </div>
         <div class="modal-body" style="width: 900px;">
 		
-            <input type="hidden" id="txtIDActividadTareas">   
+            <input type="hidden" id="txtIDActividadComentarios">   
 			
 				<label for="" class="label-texto">DATOS DE LA ACTIVIDAD</label>
 			
 			<br>
             <div class="form-row separador">				
                 <div class="col-4">			
-					<input type="hidden" id="txtIDActividadPopup">
+					<!--<input type="hidden" id="txtIDActividadTareas">-->
 
 					<div class="form-row">
 						<div class="col">

@@ -1603,7 +1603,7 @@ function AbrirModalComentariosActividades(id){
             if (dato.status == "ok") {
                 var resultado = dato.data;
 
-                $("#txtIDActividadPopup").val(resultado.id);
+                $("#txtIDActividadComentarios").val(resultado.id);
                 $("#bxNombreActividadPopup").val(resultado.nombre);
                 $("#txtDescripcionPopup").val(resultado.descripcion);
                 $("#bxResponsablePopup").val(resultado.responsable);
