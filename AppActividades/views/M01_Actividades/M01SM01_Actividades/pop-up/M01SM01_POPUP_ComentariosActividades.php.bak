@@ -172,34 +172,9 @@
 					</div>
                 </div>
 				<?php 
-					$query = mysqli_query($conection, "SELECT * FROM acgsoft_appvisitas.coment_actividades");
+					$query = mysqli_query($conection, "SELECT * FROM coment_actividades");
 				?>
-				<?php
-					if(mysqli_num_rows($query)>0)
-					{
-						while($row= mysqli_fetch_assoc($query))	
-						{
-				?>
-						<div class="sss">
-							<p>
-								<span><?php //echo $row['name']; ?> :</span>
-								<?php echo $row['comentario']; ?>
-							</p>
-						</div>
-				<?php
-						}
-					}
-					else
-					{
-				?>
-					<div class="">
-						<p>
-							No hay ninguna conversación previa.
-						</p>
-					</div>
-				<?php
-					} 
-				?>
+				
 				<div class="col" style="height: 575px; overflow: auto;">
 					<div class="wrapper" >
 						<div class="chat-area">
@@ -215,20 +190,22 @@
 								</div>
 							</div>
 							<div class="chat-area-main">
-								<?php
+								<?php $contC = 0 ?>
+								<?php							
 								while($row= mysqli_fetch_assoc($query)) {  
 								//print_r($key);
 								?>
-								<div class="chat-msg">
+								<?php $contC++ ?>
+								<div class="chat-msg <?= ($contC == 1) ? 'owner' : '' ?>">
 									<div class="chat-msg-profile">
 										<img class="chat-msg-img" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3364143/download+%283%29+%281%29.png" alt="" />
-										<div class="chat-msg-date"><span class="color-autor">Luis Chavez</span> &nbsp; &nbsp; 26/01/2022 - 2:40pm</div>
+										<div class="chat-msg-date"><span class="color-autor"><?php echo $row['idusuario']; ?></span> &nbsp; &nbsp; <?php echo $row['fecha']; ?> - <?php echo $row['hora']; ?></div>
 									</div>
 									<div class="chat-msg-content">
 										<div class="chat-msg-text"><?php echo $row['comentario']; ?></div>
 									</div>
 								</div>
-								<?php } ?>
+								<?php }  ?>
 								<!--<div class="chat-msg owner">
 									<div class="chat-msg-profile">
 										<img class="chat-msg-img" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3364143/download+%281%29.png" alt="" />
