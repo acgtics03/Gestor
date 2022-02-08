@@ -1,10 +1,9 @@
 <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
-
     <div class="modal-content">
         <div class="modal-cabecera-list" style="text-align:left;">
             <button class="close btn-cerrar" data-dismiss="modal" aria-label="Close">
 				<i class="fa fa-window-close" aria-hidden="true"></i>
-		</button>
+			</button>
             <span><i class="fa fas fa-edit" aria-hidden="true"></i> Datos de la Actividad </span>
         </div>
         <div class="head-model cabecera-modal-accion">

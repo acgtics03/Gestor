@@ -1,21 +1,20 @@
 <div class="modal-dialog modal-sm modal-dialog-centered" role="document" style="width: 1000px;">
     <div class="modal-content" style="width: 1000px;">
-        <div class="modal-cabecera-list" style="text-align:left;">
-            <button class="close btn-cerrar" data-dismiss="modal" aria-label="Close"><i class="fa fa-window-close"
-                    aria-hidden="true"></i></button>
-            <span><i class="fa fa-list" aria-hidden="true"></i> Comentarios de la Actividad</span>
-        </div>
-        <div class="modal-body" style="width: 900px;">
-		
-            <input type="hidden" id="txtIDActividadComentarios">   
-			
+		<div class="modal-cabecera-list" style="text-align:left;">
+			<button class="close btn-cerrar" data-dismiss="modal" aria-label="Close"><i class="fa fa-window-close"
+					aria-hidden="true"></i>
+			</button>
+			<span><i class="fa fa-list" aria-hidden="true"></i> Comentarios de la Actividad</span>
+		</div>
+		<div class="modal-body" style="width: 900px;">		
+				<input type="hidden" id="txtIDActividadComentarios">  
+				
 				<label for="" class="label-texto">DATOS DE LA ACTIVIDAD</label>
+				<br>
+				
 			
-			<br>
             <div class="form-row separador">				
                 <div class="col-4">			
-					<!--<input type="hidden" id="txtIDActividadTareas">-->
-
 					<div class="form-row">
 						<div class="col">
 							<label for="" class="label-texto">Nombre</label>
@@ -135,6 +134,8 @@
 							</select>   
 						</div>
 					</div>
+					
+					
 					<div style="padding-top: 50px;">
 						<div style="text-align: center;">
 							<label for="" class="label-texto">INGRESO DE COMENTARIOS</label>
@@ -143,7 +144,7 @@
 						<div class="form-row">
 							<div class="col">
 								<label for="" class="label-texto">Nombre</label>
-								<input type="text" id="txtNombreTarea" class="caja-texto" placeholder="Escriba aquí">
+								<input type="text" id="txtNombreTarea" class="caja-texto" value="<?php echo '' . '' .$nombre_usuario ;?>">
 							</div>
 						</div>
 						<div class="form-row">
@@ -170,6 +171,9 @@
 						
 					</div>
                 </div>
+				<?php 
+					$query = mysqli_query($conection, "SELECT * FROM acgsoft_appvisitas.coment_actividades");
+				?>
 				
 				<div class="col" style="height: 575px; overflow: auto;">
 					<div class="wrapper" >
@@ -186,16 +190,21 @@
 								</div>
 							</div>
 							<div class="chat-area-main">
+								<?php
+								while($row= mysqli_fetch_assoc($query)) {  
+								//print_r($key);
+								?>
 								<div class="chat-msg">
 									<div class="chat-msg-profile">
 										<img class="chat-msg-img" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3364143/download+%283%29+%281%29.png" alt="" />
 										<div class="chat-msg-date"><span class="color-autor">Luis Chavez</span> &nbsp; &nbsp; 26/01/2022 - 2:40pm</div>
 									</div>
 									<div class="chat-msg-content">
-										<div class="chat-msg-text">Neque gravida in fermentum et sollicitudin ac orci phasellus egestas. Pretium lectus quam id leo.</div>
+										<div class="chat-msg-text"><?php echo $row['comentario']; ?></div>
 									</div>
 								</div>
-								<div class="chat-msg owner">
+								<?php } ?>
+								<!--<div class="chat-msg owner">
 									<div class="chat-msg-profile">
 										<img class="chat-msg-img" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3364143/download+%281%29.png" alt="" />
 										<div class="chat-msg-date"><span class="color-autor">Jimenna Lopez</span> &nbsp; &nbsp; 26/01/2022 - 2:50pm</div>
@@ -203,67 +212,15 @@
 									<div class="chat-msg-content">
 										<div class="chat-msg-text">Cras mollis nec arcu malesuada tincidunt.</div>
 									</div>
-								</div>
-								<div class="chat-msg">
-									<div class="chat-msg-profile">
-										<img class="chat-msg-img" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3364143/download+%282%29.png" alt="">
-										<div class="chat-msg-date"><span class="color-autor">Miriam Gutierrez</span> &nbsp; &nbsp; 26/01/2022 - 2:53pm</div>
-									</div>
-									<div class="chat-msg-content">
-										<div class="chat-msg-text">Ut faucibus pulvinar elementum integer enim neque volutpat.</div>
-									</div>
-								</div>
-								<div class="chat-msg owner">
-									<div class="chat-msg-profile">
-										<img class="chat-msg-img" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3364143/download+%281%29.png" alt="" />
-										<div class="chat-msg-date"><span class="color-autor">Jimenna Lopez</span> &nbsp; &nbsp; 26/01/2022 - 2:56pm</div>
-									</div>
-									<div class="chat-msg-content">
-										<div class="chat-msg-text">Cras mollis nec arcu malesuada tincidunt.</div>
-									</div>
-								</div>
-								<div class="chat-msg">
-									<div class="chat-msg-profile">
-										<img class="chat-msg-img" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3364143/download+%2812%29.png" alt="" />
-										<div class="chat-msg-date"><span class="color-autor">Alfredo Mendiola</span> &nbsp; &nbsp; 26/01/2022 - 2:58pm</div>
-									</div>
-									<div class="chat-msg-content">
-										<div class="chat-msg-text">Egestas tellus rutrum tellus pellentesque</div>
-									</div>
-								</div>
-								<div class="chat-msg">
-									<div class="chat-msg-profile">
-										<img class="chat-msg-img" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3364143/download+%283%29+%281%29.png" alt="" class="account-profile" alt="">
-										<div class="chat-msg-date"><span class="color-autor">Luis Chavez</span> &nbsp; &nbsp; 26/01/2022 - 3:00pm</div>
-									</div>
-									<div class="chat-msg-content">
-										<div class="chat-msg-text">Consectetur adipiscing elit pellentesque habitant morbi tristique senectus et.</div>
-									</div>
-								</div>
-								<div class="chat-msg owner">
-									<div class="chat-msg-profile">
-										<img class="chat-msg-img" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3364143/download+%281%29.png" alt="" />
-										<div class="chat-msg-date"><span class="color-autor">Jimenna Lopez</span> &nbsp; &nbsp; 26/01/2022 - 3:02pm</div>
-									</div>
-									<div class="chat-msg-content">
-										<div class="chat-msg-text">Tincidunt arcu non sodales😂</div>
-									</div>
-								</div>
-								<div class="chat-msg">
-									<div class="chat-msg-profile">
-										<img class="chat-msg-img" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3364143/download+%282%29.png" alt="">
-										<div class="chat-msg-date"><span class="color-autor">Miriam Gutierrez</span> &nbsp; &nbsp; 26/01/2022 - 3:05pm</div>
-									</div>
-									<div class="chat-msg-content">
-										<div class="chat-msg-text">Consectetur adipiscing elit pellentesque habitant morbi tristique senectus et🥰</div>
-									</div>
-								</div>
+								</div>-->
+								
+								
 							</div>
 							
 						</div>			
 					</div>
 				</div>                                
-			</div>
+			
         </div>
     </div>
 </div>

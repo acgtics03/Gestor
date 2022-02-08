@@ -7,6 +7,8 @@ $usr = "";
 if (!empty($_SESSION['usu'])) {
     $usr = $_SESSION['usu'];
 }
+//print_r($usr);
+
 require_once "../../../../config/configuracion.php";
 require_once "../../../../config/conexion_app.php";
 require_once "../../../../config/sesion.php";
@@ -14,6 +16,16 @@ require_once "../../../controllers/ControllerCategorias.php";
 $fecha_hoy = date('Y-m-d');
 $URL= "";
 $URL = $HOST;
+
+//USUARIO
+$account = $_SESSION['user'];
+$consultar_nombre =  mysqli_query($conection, "SELECT concat(SUBSTRING_INDEX(nombre,' ',1),' ',SUBSTRING_INDEX(apellido,' ',1)) as usuario FROM persona WHERE idusuario='$account'");
+$consultar_nombrer = mysqli_fetch_assoc($consultar_nombre);
+$nombre_usuario = $consultar_nombrer['usuario'];
+
+
+
+
 ?>
 <head>
     <meta charset="utf-8">
