@@ -34,6 +34,7 @@ if (isset($_POST['btnCargarComentariosActividad'])) {
           date_format(act.Horafin, '%H') as Horafin,
           date_format(act.Horafin, '%i') as Minutosfin,
           act.responsable as responsable,
+		  act.area as tipo,
           act.estado as estado
       FROM actividades act
       WHERE act.idactividades='$IdReg'");
@@ -63,7 +64,7 @@ if (isset($_POST['btnCargarComentariosActividad'])) {
 
 if(isset($_POST['btnActualizarActividad'])){
 
-        $txtIDActividadComentarios = isset($_POST['txtIDActividadComentarios']) ? $_POST['txtIDActividadTareas'] : Null;
+        $txtIDActividadComentarios = isset($_POST['txtIDActividadComentarios']) ? $_POST['txtIDActividadComentarios'] : Null;
         $txtIDComentariosopupr = trim($txtIDActividadComentarios);   
 
         $bxNombreActividadPopup = isset($_POST['bxNombreActividadPopup']) ? $_POST['bxNombreActividadPopup'] : Null;

@@ -147,6 +147,7 @@
 								<input type="text" id="txtNombreTarea" class="caja-texto" value="<?php echo '' . '' .$nombre_usuario ;?>">
 							</div>
 						</div>
+						
 						<div class="form-row">
 							<div class="col">
 								<label for="" class="label-texto">Ingresa tu comentario</label>
@@ -199,7 +200,7 @@
 								<div class="chat-msg <?= ($contC == 1) ? 'owner' : '' ?>">
 									<div class="chat-msg-profile">
 										<img class="chat-msg-img" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3364143/download+%283%29+%281%29.png" alt="" />
-										<div class="chat-msg-date"><span class="color-autor"><?php echo $row['idusuario']; ?></span> &nbsp; &nbsp; <?php echo $row['fecha']; ?> - <?php echo $row['hora']; ?></div>
+										<div class="chat-msg-date"><span class="color-autor">Luis Chavez</span> &nbsp; &nbsp; <?php echo $row['fecha']; ?> - <?php echo $row['hora']; ?></div>
 									</div>
 									<div class="chat-msg-content">
 										<div class="chat-msg-text"><?php echo $row['comentario']; ?></div>

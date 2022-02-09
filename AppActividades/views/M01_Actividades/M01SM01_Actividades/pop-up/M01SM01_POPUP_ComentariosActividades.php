@@ -14,7 +14,8 @@
 				
 			
             <div class="form-row separador">				
-                <div class="col-4">			
+                <div class="col-4">	
+				
 					<div class="form-row">
 						<div class="col">
 							<label for="" class="label-texto">Nombre</label>
@@ -29,6 +30,21 @@
 							<textarea id="txtDescripcionPopup" class="caja-texto cbx-tam descripcion" maxlength="200" onkeypress="cancelar()"></textarea>
 						</div>
 					</div>
+					<div class="col-md-6">
+                    <label class="label-texto">Tipo <small id="boxmotivo_eliminarHtml"
+                            class="form-text text-muted-validacion text-danger ocultar-info">
+                        </small></label>
+                        <select class="cbx-texto" name="bxTipoPopup" id="bxTipoPopup">
+                            <option selected="true" disabled="disabled">Seleccionar..</option>
+                            <?php
+                            $Tipos = new ControllerCategorias();
+                            $verTipos = $Tipos->VerTipos();
+                            foreach ($verTipos as $TTipos) {
+                                ?>
+                                <option value="<?php echo $TTipos['ID']; ?>"><?php echo $TTipos['Nombre']; ?></option>
+                            <?php }  ?>
+                        </select>
+                </div>
 					<div class="form-row">
 						<div class="col">
 							<label for="" class="label-texto">Responsable</label>
@@ -147,6 +163,7 @@
 								<input type="text" id="txtNombreTarea" class="caja-texto" value="<?php echo '' . '' .$nombre_usuario ;?>">
 							</div>
 						</div>
+						
 						<div class="form-row">
 							<div class="col">
 								<label for="" class="label-texto">Ingresa tu comentario</label>

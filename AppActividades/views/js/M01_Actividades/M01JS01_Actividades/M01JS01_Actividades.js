@@ -309,6 +309,15 @@ function LlenarTipoActividadPopup(){
     llenarCombo(url, datos, "bxNombreActividadPopup");
 }
 
+function LlenarTipoActividadComent(){
+    document.getElementById('bxNombreActividadPopup').selectedIndex = 0;
+    var url = '../../models/M01_Actividades/M01MD01_Actividades/M01MD03_ListarTiposActividad.php';
+    var datos = {
+        "btnListarTiposActividadPopup": true
+    }
+    llenarCombo(url, datos, "bxNombreActividadPopup");
+}
+
 function LlenarNombresActividadTarea(){
     document.getElementById('bxNombreActividadTarea').selectedIndex = 0;
     var url = '../../models/M01_Actividades/M01MD01_Actividades/M01MD03_ListarTiposActividad.php';
@@ -1614,6 +1623,7 @@ function AbrirModalComentariosActividades(id){
                 $("#txtHoraTerminoPopup").val(resultado.Horafin);
                 $("#txtMinutosTerminoPopup").val(resultado.Minutosfin);
                 $("#bxEstadoPopup").val(resultado.estado);
+				$("#bxTipoPopup").val(resultado.tipo);
 
                 $('#modalComentariosActividad').modal('show');
                 return;

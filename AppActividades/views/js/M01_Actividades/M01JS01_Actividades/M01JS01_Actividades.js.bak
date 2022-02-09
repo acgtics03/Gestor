@@ -309,6 +309,15 @@ function LlenarTipoActividadPopup(){
     llenarCombo(url, datos, "bxNombreActividadPopup");
 }
 
+function LlenarTipoActividadComent(){
+    document.getElementById('bxNombreActividadPopup').selectedIndex = 0;
+    var url = '../../models/M01_Actividades/M01MD01_Actividades/M01MD03_ListarTiposActividad.php';
+    var datos = {
+        "btnListarTiposActividadPopup": true
+    }
+    llenarCombo(url, datos, "bxNombreActividadPopup");
+}
+
 function LlenarNombresActividadTarea(){
     document.getElementById('bxNombreActividadTarea').selectedIndex = 0;
     var url = '../../models/M01_Actividades/M01MD01_Actividades/M01MD03_ListarTiposActividad.php';
