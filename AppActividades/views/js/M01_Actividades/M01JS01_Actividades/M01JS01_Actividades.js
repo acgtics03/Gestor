@@ -1593,7 +1593,7 @@ function FinalizarActividad(idact){
 
 
 function AbrirModalComentariosActividades(id){
-   LlenarTipoActividadPopup();
+   LlenarTipoActividadComent();
    LlenarResponsablesPopup();
    //$('#modalComentariosActividad').modal('show');
    
