@@ -310,12 +310,12 @@ function LlenarTipoActividadPopup(){
 }
 
 function LlenarTipoActividadComent(){
-    document.getElementById('bxNombreActividadPopup').selectedIndex = 0;
+    document.getElementById('bxNombreActividadComent').selectedIndex = 0;
     var url = '../../models/M01_Actividades/M01MD01_Actividades/M01MD03_ListarTiposActividad.php';
     var datos = {
         "btnListarTiposActividadPopup": true
     }
-    llenarCombo(url, datos, "bxNombreActividadPopup");
+    llenarCombo(url, datos, "bxNombreActividadComent");
 }
 
 function LlenarNombresActividadTarea(){

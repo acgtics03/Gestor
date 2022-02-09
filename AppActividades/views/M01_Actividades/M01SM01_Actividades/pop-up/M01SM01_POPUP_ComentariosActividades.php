@@ -19,7 +19,7 @@
 					<div class="form-row">
 						<div class="col">
 							<label for="" class="label-texto">Nombre</label>
-							<select class="cbx-texto" name="bxNombreActividadPopup" id="bxNombreActividadPopup">
+							<select class="cbx-texto" name="bxNombreActividadComent" id="bxNombreActividadComent">
 								<option selected="true" disabled="disabled">Seleccionar..</option>
 							</select>
 						</div>
