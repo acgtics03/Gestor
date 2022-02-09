@@ -1623,7 +1623,6 @@ function AbrirModalComentariosActividades(id){
                 $("#txtHoraTerminoPopup").val(resultado.Horafin);
                 $("#txtMinutosTerminoPopup").val(resultado.Minutosfin);
                 $("#bxEstadoPopup").val(resultado.estado);
-				$("#bxTipoPopup").val(resultado.tipo);
 
                 $('#modalComentariosActividad').modal('show');
                 return;
