@@ -290,6 +290,16 @@ function LlenarResponsablesPopup(){
     llenarCombo(url, datos, "bxResponsable");
 }
 
+function LlenarResponsablesComent(){
+    document.getElementById('bxResponsableComent').selectedIndex = 0;
+    var url = '../../models/M01_Actividades/M01MD01_Actividades/M01MD03_ListarTiposActividad.php';
+    var datos = {
+        "btnListarResponsables": true
+    }
+    llenarCombo(url, datos, "bxResponsableComent");
+}
+
+
 function LlenarFiltroResponsables(){
     document.getElementById('bxfiltroResponsable').selectedIndex = 0;
     var url = '../../models/M01_Actividades/M01MD01_Actividades/M01MD03_ListarTiposActividad.php';
@@ -989,7 +999,7 @@ function AbrirModalUpdateTareas(id){
 
 function AbrirModalEditarTareas(id) {
 
-  // $('#modalRegistrar').modal('show');
+   //$('#modalEditarTareas').modal('show');
    bloquearPantalla("Buscando...");
     var data = {
         "btnCargarDatosTarea": true,
@@ -1594,7 +1604,7 @@ function FinalizarActividad(idact){
 
 function AbrirModalComentariosActividades(id){
    LlenarTipoActividadComent();
-   LlenarResponsablesPopup();
+   LlenarResponsablesComent();
    //$('#modalComentariosActividad').modal('show');
    
    bloquearPantalla("Buscando...");
@@ -1613,16 +1623,16 @@ function AbrirModalComentariosActividades(id){
                 var resultado = dato.data;
 
                 $("#txtIDActividadComentarios").val(resultado.id);
-                $("#bxNombreActividadPopup").val(resultado.nombre);
-                $("#txtDescripcionPopup").val(resultado.descripcion);
-                $("#bxResponsablePopup").val(resultado.responsable);
-                $("#txtFechaInicioPopup").val(resultado.fechaini);
-                $("#txtFechaTerminoPopup").val(resultado.fechafin);
-                $("#txtHoraInicioPopup").val(resultado.Horaini);
-                $("#txtMinutosInicioPopup").val(resultado.Minutosini);
-                $("#txtHoraTerminoPopup").val(resultado.Horafin);
-                $("#txtMinutosTerminoPopup").val(resultado.Minutosfin);
-                $("#bxEstadoPopup").val(resultado.estado);
+                $("#bxNombreActividadComent").val(resultado.nombre);
+                $("#txtDescripcionComent").val(resultado.descripcion);
+                $("#bxResponsableComent").val(resultado.responsable);
+                $("#txtFechaInicioComent").val(resultado.fechaini);
+                $("#txtFechaTerminoComent").val(resultado.fechafin);
+                $("#txtHoraInicioComent").val(resultado.Horaini);
+                $("#txtMinutosInicioComent").val(resultado.Minutosini);
+                $("#txtHoraTerminoComent").val(resultado.Horafin);
+                $("#txtMinutosTerminoComent").val(resultado.Minutosfin);
+                $("#bxEstadoComent").val(resultado.estado);
 
                 $('#modalComentariosActividad').modal('show');
                 return;
@@ -1640,9 +1650,76 @@ function AbrirModalComentariosActividades(id){
 }
 
 
+/********************************** COMENTARIOS TAREAS *********************************/
 
+/**************************** comentarios tareas ***************************/
+function LlenarNombresComentariosTarea(){
+    document.getElementById('txtNombreTareaComent').selectedIndex = 0;
+    var url = '../../models/M01_Actividades/M01MD01_Actividades/M01MD03_ListarTiposActividad.php';
+    var datos = {
+        "btnListarTiposActividadTarea": true
+    }
+    llenarCombo(url, datos, "txtNombreTareaComent");
+}
+
+function LlenarResponsablesComentTarea(){
+    document.getElementById('bxResponsableTareaComent').selectedIndex = 0;
+    var url = '../../models/M01_Actividades/M01MD01_Actividades/M01MD03_ListarTiposActividad.php';
+    var datos = {
+        "btnListarResponsables": true
+    }
+    llenarCombo(url, datos, "bxResponsableTareaComent");
+}
+
+function AbrirModalComentariosTareas(id){
+	LlenarNombresComentariosTarea();
+	LlenarResponsablesComentTarea();
+
+   
+	bloquearPantalla("Buscando...");
+    var data = {
+        "btnCargarComentariosTareas": true,
+        "IdRegistro": id
+    };
+    $.ajax({
+        type: "POST",
+        url: "../../models/M01_Actividades/M01MD01_Actividades/M01MD08_Comentarios.php",
+        data: data,
+        dataType: "json",
+        success: function(dato) {
+            desbloquearPantalla();
+            if (dato.status == "ok") {
+                var resultado = dato.data;
+
+                $("#txtIDTareasComentarios").val(resultado.id);
+                $("#txtNombreTareaComent").val(resultado.nombre);
+                $("#txtFechaInicioTareaComent").val(resultado.fechaini);
+                $("#txtFechaTerminoTareaComent").val(resultado.fechafin);
+                $("#txtHoraInicioTareaComent").val(resultado.Horaini);
+                $("#txtMinutosInicioTareaComent").val(resultado.Minutosini);
+                $("#txtHoraTerminoTareaComent").val(resultado.Horafin);
+                $("#txtMinutosTerminoTareaComent").val(resultado.Minutosfin);
+                $("#txtDescripcionTareaComent").val(resultado.descripcion);
+                $("#bxEstadoTareaComent").val(resultado.estado);
+                $("#bxResponsableTareaComent").val(resultado.responsable);
+
+                $('#modalComentariosTareas').modal('show');
+                return;
+
+            } else {
+                mensaje_alerta("¡IMPORTANTE!", dato.data, "info");
+            }
+        },
+        error: function(error) {
+            console.log(error);
+            desbloquearPantalla();
+        },
+        timeout: timeoutDefecto
+    });
+}
 
 /************************************-------------  BOTON DE CERRAR SESION ---------------**********************/
+
 
 function ConsultaCerrarSesion() {
   mensaje_sesion("Al confirmar saldrá del Modulo de Actividades.", CerrarSesion);

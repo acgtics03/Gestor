@@ -23,11 +23,8 @@ $consultar_nombre =  mysqli_query($conection, "SELECT concat(SUBSTRING_INDEX(nom
 $consultar_nombrer = mysqli_fetch_assoc($consultar_nombre);
 $nombre_usuario = $consultar_nombrer['usuario'];
 
-
-
-
 ?>
-<head>
+<head> 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- Tell the browser to be responsive to screen width -->
@@ -551,6 +548,14 @@ $nombre_usuario = $consultar_nombrer['usuario'];
                     require_once "pop-up/M01SM01_POPUP_EditarTareas.php";
                     ?>
                 </div>
+				
+				<div class="modal fade" id="modalComentariosTareas" tabindex="-1" role="dialog" data-backdrop="static"
+                aria-labelledby="myModalLabel" style="margin-left: -400px;">
+                    <?php
+                   require_once "pop-up/M01SM01_POPUP_ComentariosTareas.php";
+                    ?>
+                </div>
+				
                 <!-- ============================================================== -->
                 <!-- End PAge Content -->
                 <!-- ============================================================== -->
@@ -634,7 +639,7 @@ $nombre_usuario = $consultar_nombrer['usuario'];
     <script type="text/javascript" src="../../main.js"></script>
 
     <script src="../../js/M01_Actividades/M01JS01_Actividades/M01JS01_Actividades.js?v=1.1.1"></script>
-    <script src="../../js/chat.js?v=1.1.1"></script>
+
     <script src="../../librerias/utilitario/jquery.blockUI.min.js?v=1.1.1"></script>
     <script src="../../librerias/utilitario/utilitario.js?v=1.1.1"></script>
     <script src="../../librerias/utilitario/sweetalert.min.js?v=1.1.1"></script>

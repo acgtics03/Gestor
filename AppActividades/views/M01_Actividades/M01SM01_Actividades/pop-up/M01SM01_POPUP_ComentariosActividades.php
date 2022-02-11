@@ -19,7 +19,7 @@
 					<div class="form-row">
 						<div class="col">
 							<label for="" class="label-texto">Nombre</label>
-							<select class="cbx-texto" name="bxNombreActividadComent" id="bxNombreActividadComent">
+							<select class="cbx-texto" name="bxNombreActividadComent" id="bxNombreActividadComent" disabled>
 								<option selected="true" disabled="disabled">Seleccionar..</option>
 							</select>
 						</div>
@@ -27,14 +27,14 @@
 					<div class="form-row">
 						<div class="col">
 							<label for="" class="label-texto">Descripción</label>
-							<textarea id="txtDescripcionPopup" class="caja-texto cbx-tam descripcion" maxlength="200" onkeypress="cancelar()"></textarea>
+							<textarea id="txtDescripcionComent" class="caja-texto cbx-tam descripcion" maxlength="200" onkeypress="cancelar()" readonly></textarea>
 						</div>
 					</div>
 					
 					<div class="form-row">
 						<div class="col">
 							<label for="" class="label-texto">Responsable</label>
-							<select class="cbx-texto" name="bxResponsablePopup" id="bxResponsablePopup">
+							<select class="cbx-texto" name="bxResponsableComent" id="bxResponsableComent" disabled>
 								<option selected="true" disabled="disabled">Seleccionar..</option>
 							</select>
 						</div>
@@ -44,13 +44,13 @@
 							<label for="" class="label-texto">Fec. Inicio 
 								<small id="txtFechaBajaRegistroHtml" class="form-text text-muted-validacion text-danger ocultar-info"></small>
 							</label>
-							<input type="date" id="txtFechaInicioPopup" class="caja-texto">
+							<input type="date" id="txtFechaInicioComent" class="caja-texto">
 						</div>
 						<div class="col-md-6">
 							<label class="label-texto">Fec. Termino 
 								<small id="boxmotivo_eliminarHtml" class="form-text text-muted-validacion text-danger ocultar-info"></small>
 							</label>
-							<input type="date" id="txtFechaTerminoPopup" class="caja-texto">
+							<input type="date" id="txtFechaTerminoComent" class="caja-texto">
 						</div>
 						<div class="col-md-6">
 							<label for="" class="label-texto">Hr Inicio <small id="txtFechaBajaRegistroHtml"
@@ -59,7 +59,7 @@
 
 							<div class="row">
 								<div class="col">
-									<input type="number" class="caja-texto" name="txtHoraInicioPopup" id="txtHoraInicioPopup" list="horas" placeholder="Horas" onKeyDown="limitText(this,2);" onKeyUp="limitText(this,2);">
+									<input type="number" class="caja-texto" name="txtHoraInicioComent" id="txtHoraInicioComent" list="horas" placeholder="Horas" onKeyDown="limitText(this,2);" onKeyUp="limitText(this,2);">
 									<datalist id="horas">
 										<?php
 										$Horas = new ControllerCategorias();
@@ -72,7 +72,7 @@
 								</div>
 								<label for="">:</label>
 								<div class="col">
-									<input type="number" class="caja-texto" name="txtMinutosInicioPopup" id="txtMinutosInicioPopup" list="Minutos" placeholder="Minutos" onKeyDown="limitText(this,2);" onKeyUp="limitText(this,2);">
+									<input type="number" class="caja-texto" name="txtMinutosInicioComent" id="txtMinutosInicioComent" list="Minutos" placeholder="Minutos" onKeyDown="limitText(this,2);" onKeyUp="limitText(this,2);">
 									<datalist id="Minutos">
 										<?php
 										$Minutos = new ControllerCategorias();
@@ -94,7 +94,7 @@
 
 							<div class="row">
 								<div class="col">
-									<input type="number" class="caja-texto" name="txtHoraTerminoPopup" id="txtHoraTerminoPopup" list="horas" placeholder="Horas" onKeyDown="limitText(this,2);" onKeyUp="limitText(this,2);">
+									<input type="number" class="caja-texto" name="txtHoraTerminoComent" id="txtHoraTerminoComent" list="horas" placeholder="Horas" onKeyDown="limitText(this,2);" onKeyUp="limitText(this,2);">
 									<datalist id="horas">
 										<?php
 										$Horas = new ControllerCategorias();
@@ -107,7 +107,7 @@
 								</div>
 								<label for="">:</label>
 								<div class="col">
-									<input type="number" class="caja-texto" name="txtMinutosTerminoPopup" id="txtMinutosTerminoPopup" list="Minutos" placeholder="Minutos" onKeyDown="limitText(this,2);" onKeyUp="limitText(this,2);">
+									<input type="number" class="caja-texto" name="txtMinutosTerminoComent" id="txtMinutosTerminoComent" list="Minutos" placeholder="Minutos" onKeyDown="limitText(this,2);" onKeyUp="limitText(this,2);">
 									<datalist id="Minutos">
 										<?php
 										$Minutos = new ControllerCategorias();
@@ -124,7 +124,7 @@
 					<div class="form-row">
 						<div class="col">
 							<label for="" class="label-texto">Estado</label>
-							<select class="cbx-texto" name="bxEstadoPopup" id="bxEstadoPopup">
+							<select class="cbx-texto" name="bxEstadoComent" id="bxEstadoComent" disabled>
 								<option selected="true" disabled="disabled">Seleccionar..</option>
 								<?php
 								$Estados = new ControllerCategorias();
@@ -138,7 +138,7 @@
 					</div>
 					
 					
-					<div style="padding-top: 50px;">
+					<div style="padding-top: 35px;">
 						<div style="text-align: center;">
 							<label for="" class="label-texto">INGRESO DE COMENTARIOS</label>
 						</div>
@@ -146,13 +146,13 @@
 						<div class="form-row">
 							<div class="col">
 								<label for="" class="label-texto">Nombre</label>
-								<input type="text" id="txtNombreTarea" class="caja-texto" value="<?php echo '' . '' .$nombre_usuario ;?>">
+								<input type="text" id="txtNombreTarea" class="caja-texto" value="<?php echo '' . '' .$nombre_usuario ;?>" readonly>
 							</div>
 						</div>
 						
 						<div class="form-row">
 							<div class="col">
-								<label for="" class="label-texto">Ingresa tu comentario</label>
+								<label for="" class="label-texto">Comentario</label>
 								<textarea id="txtDescripcionPopup" class="caja-texto cbx-tam descripcion" maxlength="200" onkeypress="cancelar()"></textarea>
 							</div>
 						</div>
@@ -167,8 +167,8 @@
 							  class="feather feather-smile">
 							<circle cx="12" cy="12" r="10" />
 							<path d="M8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01" /></svg>	
-							<div style="margin-left: 30px;">
-								<button id="guardar" type="button" class="btn btn-registro" style="width: 100%; padding: 0px 20px;"> PUBLICAR COMENTARIO</button>
+							<div style="margin-left: auto;">
+								<button id="guardar" type="button" class="btn btn-registro" style="width: 100%; padding: 0px 20px;">COMENTAR</button>
 							</div>								
 						</div>
 						
@@ -178,7 +178,7 @@
 					$query = mysqli_query($conection, "SELECT * FROM coment_actividades");
 				?>
 				
-				<div class="col" style="height: 575px; overflow: auto;">
+				<div class="col" style="height: 480px; overflow: auto;">
 					<div class="wrapper" >
 						<div class="chat-area">
 							<div class="chat-area-header">
@@ -226,6 +226,7 @@
 					</div>
 				</div>                                
 			
-        </div>
-    </div>
+			</div>
+		</div>
+	</div>
 </div>
