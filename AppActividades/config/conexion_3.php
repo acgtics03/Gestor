@@ -21,7 +21,7 @@
 	$conection_asistencia = mysqli_connect($host,$user,$password,$db);
 
 	if(!$conection){
-		echo "Error en la conexi贸n";
+		echo "Error en la conexion";
 	}
 
 ?>

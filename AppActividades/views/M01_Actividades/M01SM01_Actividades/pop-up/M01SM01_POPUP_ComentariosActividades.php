@@ -7,11 +7,10 @@
 			<span><i class="fa fa-list" aria-hidden="true"></i> Comentarios de la Actividad</span>
 		</div>
 		<div class="modal-body" style="width: 900px;">		
-				<input type="hidden" id="txtIDActividadComentarios">  
-				
-				<label for="" class="label-texto">DATOS DE LA ACTIVIDAD</label>
-				<br>
-				
+			<input type="hidden" id="txtIDActividadComentarios">  
+			
+			<label for="" class="label-texto">DATOS DE LA ACTIVIDAD</label>
+			<br>
 			
             <div class="form-row separador">				
                 <div class="col-4">	
@@ -176,13 +175,11 @@
                 </div>
 				<?php 
 					$query = mysqli_query($conection, "SELECT * FROM coment_actividades");
-				?>
-				
+				?>				
 				<div class="col" style="height: 480px; overflow: auto;">
 					<div class="wrapper" >
 						<div class="chat-area">
 							<div class="chat-area-header">
-								<!--<img class="user-profile" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3364143/download+%281%29.png" alt="" class="account-profile" alt="">-->
 								<div class="chat-area-title">Grupo Soporte</div>
 								
 								<div class="chat-area-group">
@@ -217,15 +214,11 @@
 									<div class="chat-msg-content">
 										<div class="chat-msg-text">Cras mollis nec arcu malesuada tincidunt.</div>
 									</div>
-								</div>-->
-								
-								
+								</div>-->																
 							</div>
-							
 						</div>			
 					</div>
 				</div>                                
-			
 			</div>
 		</div>
 	</div>
