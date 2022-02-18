@@ -1649,10 +1649,51 @@ function AbrirModalComentariosActividades(id){
     });
 }
 
+//ingreso comentarios
+
+$(document).ready(function(){ 
+	showComments();
+	$('#commentForm').on('submit', function(event){
+		event.preventDefault();
+		var formData = $(this).serialize();
+		$.ajax({
+			//url:"comments.php",
+			url: "../../models/M01_Actividades/M01MD01_Actividades/comments.php",
+			method: "POST",
+			data: formData,
+			dataType: "JSON",
+			success:function(response) {
+				if(!response.error){
+					$('#commentForm')[0].reset();
+					$('#commentId').val('0');
+					$('#message').html(response.message);
+					showComments();
+				}else if(response.error){
+					$('#message').html(response.message);
+				}
+			}
+		})
+	});
+	$(document).on('click', '.reply', function(){
+		var commentId = $(this).attr("id");
+		$('#commentId').val(commentId);
+		$('#nombre').focus();
+	});
+});
+//funcion para mostrar comentario
+function showComments(){
+	$.ajax({
+		//url:"show_comments.php",
+		url: "../../models/M01_Actividades/M01MD01_Actividades/show_comments.php",
+		method: "POST",
+		success:function(response) {
+			$('#showComments').html(response);
+		}
+	})
+}
 
 /********************************** COMENTARIOS TAREAS *********************************/
 
-/**************************** comentarios tareas ***************************/
 function LlenarNombresComentariosTarea(){
     document.getElementById('txtNombreTareaComent').selectedIndex = 0;
     var url = '../../models/M01_Actividades/M01MD01_Actividades/M01MD03_ListarTiposActividad.php';
