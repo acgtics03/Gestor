@@ -9,13 +9,16 @@
    $data = array();
    $dataList = array();
 
-   $username = $_SESSION['usu'];
+	$username = $_SESSION['usu'];
     $consulta_id = mysqli_query($conection, "SELECT idusuario FROM usuario WHERE usuario='$username'");
     $consulta_idr = mysqli_fetch_assoc($consulta_id);
     $ids = $consulta_idr['idusuario'];
+	
+//
 
 if(!empty($_POST["nombre"]) && !empty($_POST["comentario"])){
-	$insertComments = "INSERT INTO coment_actividades (parent_id, comentario, nombre) VALUES ('".$_POST["commentId"]."', '".$_POST["comentario"]."','".$_POST["nombre"]."')";
+
+	$insertComments = "INSERT INTO coment_tareas (idtareas, idusuario, comentario, nombre) VALUES ('".$_POST["txtIDTareasComentarios"]."', '".$_POST["IdUsuario"]."', '".$_POST["comentario"]."','".$_POST["nombre"]."')";
 	mysqli_query($conection, $insertComments) or die("database error: ".mysqli_error($conection));
 	$message = '<label class="text-success">Comentario publicado.</label';
 	$status = array(

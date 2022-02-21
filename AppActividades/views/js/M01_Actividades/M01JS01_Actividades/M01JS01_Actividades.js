@@ -290,16 +290,6 @@ function LlenarResponsablesPopup(){
     llenarCombo(url, datos, "bxResponsable");
 }
 
-function LlenarResponsablesComent(){
-    document.getElementById('bxResponsableComent').selectedIndex = 0;
-    var url = '../../models/M01_Actividades/M01MD01_Actividades/M01MD03_ListarTiposActividad.php';
-    var datos = {
-        "btnListarResponsables": true
-    }
-    llenarCombo(url, datos, "bxResponsableComent");
-}
-
-
 function LlenarFiltroResponsables(){
     document.getElementById('bxfiltroResponsable').selectedIndex = 0;
     var url = '../../models/M01_Actividades/M01MD01_Actividades/M01MD03_ListarTiposActividad.php';
@@ -317,15 +307,6 @@ function LlenarTipoActividadPopup(){
         "btnListarTiposActividadPopup": true
     }
     llenarCombo(url, datos, "bxNombreActividadPopup");
-}
-
-function LlenarTipoActividadComent(){
-    document.getElementById('bxNombreActividadComent').selectedIndex = 0;
-    var url = '../../models/M01_Actividades/M01MD01_Actividades/M01MD03_ListarTiposActividad.php';
-    var datos = {
-        "btnListarTiposActividadPopup": true
-    }
-    llenarCombo(url, datos, "bxNombreActividadComent");
 }
 
 function LlenarNombresActividadTarea(){
@@ -1598,9 +1579,25 @@ function FinalizarActividad(idact){
     });
 }
 
+/******************************* COMENTARIOS ACTIVIDADES *******************************/
 
-/******************************-----------BOTON DE COMENTARIOS --------------****************************/
+function LlenarResponsablesComent(){
+    document.getElementById('bxResponsableComent').selectedIndex = 0;
+    var url = '../../models/M01_Actividades/M01MD01_Actividades/M01MD03_ListarTiposActividad.php';
+    var datos = {
+        "btnListarResponsables": true
+    }
+    llenarCombo(url, datos, "bxResponsableComent");
+}
 
+function LlenarTipoActividadComent(){
+    document.getElementById('bxNombreActividadComent').selectedIndex = 0;
+    var url = '../../models/M01_Actividades/M01MD01_Actividades/M01MD03_ListarTiposActividad.php';
+    var datos = {
+        "btnListarTiposActividadPopup": true
+    }
+    llenarCombo(url, datos, "bxNombreActividadComent");
+}
 
 function AbrirModalComentariosActividades(id){
    LlenarTipoActividadComent();
@@ -1614,7 +1611,7 @@ function AbrirModalComentariosActividades(id){
     };
     $.ajax({
         type: "POST",
-        url: "../../models/M01_Actividades/M01MD01_Actividades/M01MD08_Comentarios.php",
+        url: "../../models/M01_Actividades/M01MD01_Actividades/M01MD05_Procesos.php",
         data: data,
         dataType: "json",
         success: function(dato) {
@@ -1648,24 +1645,21 @@ function AbrirModalComentariosActividades(id){
         timeout: timeoutDefecto
     });
 }
-
-//ingreso comentarios
-
+/****** FUNCION INGRESO COMENTARIOS ******/
 $(document).ready(function(){ 
 	showComments();
 	$('#commentForm').on('submit', function(event){
 		event.preventDefault();
 		var formData = $(this).serialize();
 		$.ajax({
-			//url:"comments.php",
-			url: "../../models/M01_Actividades/M01MD01_Actividades/comments.php",
+			url: "../../models/M01_Actividades/M01MD01_Actividades/M01MD08_ComentariosActividades.php",
 			method: "POST",
 			data: formData,
 			dataType: "JSON",
 			success:function(response) {
 				if(!response.error){
+					//$("#txtIDActividadComentarios").val(response.id);
 					$('#commentForm')[0].reset();
-					$('#commentId').val('0');
 					$('#message').html(response.message);
 					showComments();
 				}else if(response.error){
@@ -1674,23 +1668,20 @@ $(document).ready(function(){
 			}
 		})
 	});
-	$(document).on('click', '.reply', function(){
-		var commentId = $(this).attr("id");
-		$('#commentId').val(commentId);
-		$('#nombre').focus();
-	});
+
 });
-//funcion para mostrar comentario
+/**** FUNCIÓN PARA MOSTRAR COMENTARIO ****/
 function showComments(){
 	$.ajax({
-		//url:"show_comments.php",
-		url: "../../models/M01_Actividades/M01MD01_Actividades/show_comments.php",
+		url: "../../models/M01_Actividades/M01MD01_Actividades/M01MD09_ViewsComentAct.php",
 		method: "POST",
 		success:function(response) {
 			$('#showComments').html(response);
 		}
 	})
 }
+/******************************* COMENTARIOS ACTIVIDADES *******************************/
+
 
 /********************************** COMENTARIOS TAREAS *********************************/
 
@@ -1724,7 +1715,7 @@ function AbrirModalComentariosTareas(id){
     };
     $.ajax({
         type: "POST",
-        url: "../../models/M01_Actividades/M01MD01_Actividades/M01MD08_Comentarios.php",
+        url: "../../models/M01_Actividades/M01MD01_Actividades/M01MD05_Procesos.php",
         data: data,
         dataType: "json",
         success: function(dato) {
@@ -1758,6 +1749,43 @@ function AbrirModalComentariosTareas(id){
         timeout: timeoutDefecto
     });
 }
+
+/****** FUNCION INGRESO COMENTARIOS TAREAS ******/
+$(document).ready(function(){ 
+	ViewsCommentsTareas();
+	$('#commentFormTareas').on('submit', function(event){
+		event.preventDefault();
+		var formData = $(this).serialize();
+		$.ajax({
+			url: "../../models/M01_Actividades/M01MD01_Actividades/M01MD10_ComentariosTareas.php",
+			method: "POST",
+			data: formData,
+			dataType: "JSON",
+			success:function(response) {
+				if(!response.error){
+					$('#commentFormTareas')[0].reset();
+					$('#message').html(response.message);
+					ViewsCommentsTareas();
+				}else if(response.error){
+					$('#message').html(response.message);
+				}
+			}
+		})
+	});
+
+});
+/**** FUNCIÓN PARA MOSTRAR COMENTARIO TAREAS ****/
+function ViewsCommentsTareas(){
+	$.ajax({
+		url: "../../models/M01_Actividades/M01MD01_Actividades/M01MD11_ViewsComentTareas.php",
+		method: "POST",
+		success:function(response) {
+			$('#ViewsCommentsTareas').html(response);
+		}
+	})
+}
+
+/********************************** COMENTARIOS TAREAS *********************************/
 
 /************************************-------------  BOTON DE CERRAR SESION ---------------**********************/
 

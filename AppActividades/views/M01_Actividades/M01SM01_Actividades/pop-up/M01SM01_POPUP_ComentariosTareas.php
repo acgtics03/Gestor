@@ -6,8 +6,7 @@
 			</button>
 			<span><i class="fa fa-list" aria-hidden="true"></i> Comentarios de la Tarea</span>
 		</div>
-		<div class="modal-body" style="width: 900px;">		
-				<input type="hidden" id="txtIDTareasComentarios">  
+		<div class="modal-body" style="width: 900px;">						
 				
 				<label for="" class="label-texto">DATOS DE LA TAREA</label>
 				<br>
@@ -141,95 +140,66 @@
 				</div>
 					
 					
-					<div style="padding-top: 35px;">
-						<div style="text-align: center;">
-							<label for="" class="label-texto">INGRESO DE COMENTARIOS</label>
-						</div>
+				<div style="padding-top: 35px;">
+					<div style="text-align: center;">
+						<label for="" class="label-texto">INGRESO DE COMENTARIOS</label>
 						<br>
+					</div>									
+					  
+					<form method="POST" id="commentFormTareas">
+						<input type="hidden" id="txtIDTareasComentarios" name="txtIDTareasComentarios">
+						<?php $usuario = $_SESSION['usu'];  								
+						$consultar_nombre =  mysqli_query($conection, "SELECT idusuario AS ID FROM usuario WHERE usuario ='$usuario'");
+						$consultar_nombrer = mysqli_fetch_assoc($consultar_nombre);
+						$id_usuario = $consultar_nombrer['ID'];
+						?>
+						<input type="hidden" id="IdUsuario" name="IdUsuario" value="<?php echo $id_usuario; ?>">
+		
 						<div class="form-row">
 							<div class="col">
 								<label for="" class="label-texto">Nombre</label>
-								<input type="text" id="txtNombreTarea" class="caja-texto" value="<?php echo '' . '' .$nombre_usuario ;?>" readonly>
+								<input type="text" name="nombre" id="nombre" class="form-control" value="<?php echo $nombre_usuario; ?>" />
 							</div>
 						</div>
-						
 						<div class="form-row">
 							<div class="col">
 								<label for="" class="label-texto">Comentario</label>
-								<textarea id="txtDescripcionPopup" class="caja-texto cbx-tam descripcion" maxlength="200" onkeypress="cancelar()"></textarea>
+								<textarea name="comentario" id="comentario" class="form-control" rows="2" required></textarea>
 							</div>
+						</div>						
+						<span id="message"></span>
+						<br>
+						<div class="form-group" style="text-align: right !important;margin-bottom: 0px;">
+							<input type="hidden" name="commentId" id="commentId" value="0" />
+							<input type="submit" name="submit" id="submit" class="btn btn-primary" value="COMENTAR" />
 						</div>
-						
-						<div class="chat-area-footer" style="border-top: none !important; padding:0px !important; position: inherit !important;">
-							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-							  class="feather feather-image">
-							<rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
-							<circle cx="8.5" cy="8.5" r="1.5" />
-							<path d="M21 15l-5-5L5 21" /></svg>								
-							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-							  class="feather feather-smile">
-							<circle cx="12" cy="12" r="10" />
-							<path d="M8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01" /></svg>	
-							<div style="margin-left: auto;">
-								<button id="guardar" type="button" class="btn btn-registro" style="width: 100%; padding: 0px 20px;">COMENTAR</button>
-							</div>								
-						</div>
-						
-					</div>
-                </div>
-				<?php 
-					$query = mysqli_query($conection, "SELECT * FROM coment_actividades");
-				?>
-				
-				<div class="col" style="height: 480px; overflow: auto;">
-					<div class="wrapper" >
-						<div class="chat-area">
-							<div class="chat-area-header">
-								<!--<img class="user-profile" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3364143/download+%281%29.png" alt="" class="account-profile" alt="">-->
-								<div class="chat-area-title">Grupo Soporte</div>
-								
-								<div class="chat-area-group">
-									<img class="chat-area-profile" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3364143/download+%283%29+%281%29.png" alt="" />
-									<img class="chat-area-profile" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3364143/download+%282%29.png" alt="">
-									<img class="chat-area-profile" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3364143/download+%2812%29.png" alt="" />
-									<span>+4</span>
-								</div>
-							</div>
-							<div class="chat-area-main">
-								<?php $contC = 0 ?>
-								<?php							
-								while($row= mysqli_fetch_assoc($query)) {  
-								//print_r($key);
-								?>
-								<?php $contC++ ?>
-								<div class="chat-msg <?= ($contC == 1) ? 'owner' : '' ?>">
-									<div class="chat-msg-profile">
-										<img class="chat-msg-img" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3364143/download+%283%29+%281%29.png" alt="" />
-										<div class="chat-msg-date"><span class="color-autor">Luis Chavez</span> &nbsp; &nbsp; <?php echo $row['fecha']; ?> - <?php echo $row['hora']; ?></div>
-									</div>
-									<div class="chat-msg-content">
-										<div class="chat-msg-text"><?php echo $row['comentario']; ?></div>
-									</div>
-								</div>
-								<?php }  ?>
-								<!--<div class="chat-msg owner">
-									<div class="chat-msg-profile">
-										<img class="chat-msg-img" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3364143/download+%281%29.png" alt="" />
-										<div class="chat-msg-date"><span class="color-autor">Jimenna Lopez</span> &nbsp; &nbsp; 26/01/2022 - 2:50pm</div>
-									</div>
-									<div class="chat-msg-content">
-										<div class="chat-msg-text">Cras mollis nec arcu malesuada tincidunt.</div>
-									</div>
-								</div>-->
-								
-								
-							</div>
-							
-						</div>			
-					</div>
-				</div>                                
-			
+					</form>		
+					
+				</div>
 			</div>
+				
+			<div class="col" style="height: 550px; overflow: auto;">
+				<div class="wrapper" >
+					<div class="chat-area">
+						<div class="chat-area-header">
+
+							<div class="chat-area-title">Grupo Soporte</div>
+							
+							<div class="chat-area-group">
+								<!--<img class="chat-area-profile" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3364143/download+%283%29+%281%29.png" alt="" />
+								<img class="chat-area-profile" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3364143/download+%282%29.png" alt="">
+								<img class="chat-area-profile" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3364143/download+%2812%29.png" alt="" />
+								<span>+4</span>-->
+							</div>
+						</div>
+						<div class="chat-area-main">
+							<div id="ViewsCommentsTareas"></div>
+						</div>						
+					</div>			
+				</div>
+			</div>                                
+		
+		</div>
 		</div>
 	</div>
 </div>

@@ -51,7 +51,7 @@ $nombre_usuario = $consultar_nombrer['usuario'];
     <link rel="stylesheet" href="../../datatables/datatables.min.css" />
     <link rel="stylesheet" href="../../datatables/DataTables-1.10.18/css/dataTables.bootstrap4.min.css" />
     <link rel="stylesheet" href="../../datatables/select/css/select.bootstrap4.min.css" />
-    
+   
 
 </head>
 

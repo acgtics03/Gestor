@@ -239,5 +239,4 @@ if (isset($_POST['btnListarResponsablesTareaEditar'])) {
     }
 }
 
-
 ?>

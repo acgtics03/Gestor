@@ -7,7 +7,7 @@
    $hora = date("H:i:s", time());;
    $fecha = date('Y-m-d'); 
    
-  $username = $_SESSION['usu'];
+	$username = $_SESSION['usu'];
     $consulta_id = mysqli_query($conection, "SELECT idusuario FROM usuario WHERE usuario='$username'");
     $consulta_idr = mysqli_fetch_assoc($consulta_id);
     $ids = $consulta_idr['idusuario'];  
