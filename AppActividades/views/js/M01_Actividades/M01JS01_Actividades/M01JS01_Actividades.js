@@ -1648,7 +1648,6 @@ function AbrirModalComentariosActividades(id){
 }
 /****** FUNCION INGRESO COMENTARIOS ******/
 $(document).ready(function(){ 
-
 	showComments();
 	$('#commentForm').on('submit', function(event){
 		event.preventDefault();
@@ -1660,7 +1659,6 @@ $(document).ready(function(){
 			dataType: "JSON",
 			success:function(response) {
 				if(!response.error){
-					//$("#txtIDActividadComentarios").val(response.id);
 					$('#commentForm')[0].reset();
 					$('#message').html(response.message);
 					showComments();
@@ -1743,6 +1741,7 @@ function AbrirModalComentariosTareas(id){
                 $("#bxResponsableTareaComent").val(resultado.responsable);
 
                 $('#modalComentariosTareas').modal('show');
+				ViewsCommentsTareas();
                 return;
 
             } else {
@@ -1783,9 +1782,13 @@ $(document).ready(function(){
 });
 /**** FUNCIÓN PARA MOSTRAR COMENTARIO TAREAS ****/
 function ViewsCommentsTareas(){
+	var data = {
+        "idTareas": $("#txtIDTareasComentarios").val()
+    };
 	$.ajax({
+		type: "POST",
 		url: "../../models/M01_Actividades/M01MD01_Actividades/M01MD11_ViewsComentTareas.php",
-		method: "POST",
+		data: data,
 		success:function(response) {
 			$('#ViewsCommentsTareas').html(response);
 		}

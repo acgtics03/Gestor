@@ -25,7 +25,7 @@ $dataList = array();
 					FROM coment_actividades comac
 					INNER JOIN usuario AS usu ON usu.idusuario=comac.idusuario
 					INNER JOIN actividades AS act ON act.idactividades=comac.idactividades
-					INNER JOIN participantes AS part ON part.participante=comac.idusuario AND part.idactividad=comac.idactividades
+					INNER JOIN participantes_tareas AS part ON part.participante=comac.idusuario AND part.idactividad=comac.idactividades
 					INNER JOIN color_coment AS color ON color.idcolor=part.idcolor
 					WHERE comac.estado = 1 and comac.idactividades='$idactividad'
 					ORDER BY id ASC";
