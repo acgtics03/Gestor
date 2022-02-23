@@ -17,6 +17,42 @@ header('Content-Type: text/html; charset=UTF-8');
 				die($e->getMessage());
 			}
  	}
+
+	public function VerTipoCarpeta(){
+
+		$consultaBS= "SELECT texto1 as ID, nombre_corto as Nombre FROM configuracion_detalle WHERE codigo_tabla ='_TIPO_CARPETA' AND estado='ACTI' ORDER BY codigo_item ASC";
+		return $this->con->query($consultaBS);
+
+	}
+
+
+	public function VerTiempoEjecutar(){
+
+		$consultaBS= "SELECT idconfig_detalle as ID, nombre_corto as Nombre FROM configuracion_detalle WHERE codigo_tabla ='_TIEMPO_EJECUTAR' AND estado='ACTI' ORDER BY codigo_item ASC";
+		return $this->con->query($consultaBS);
+
+	}
+
+	public function VerTipoGeneracion(){
+
+		$consultaBS= "SELECT idconfig_detalle as ID, nombre_corto as Nombre FROM configuracion_detalle WHERE codigo_tabla ='_TIPO_GENERACION' AND estado='ACTI' ORDER BY codigo_item ASC";
+		return $this->con->query($consultaBS);
+
+	}
+
+	public function VerMes(){
+
+		$consultaBS= "SELECT texto1 as ID, nombre_corto as Nombre FROM configuracion_detalle WHERE codigo_tabla ='_MES' AND estado='ACTI' ORDER BY codigo_item ASC";
+		return $this->con->query($consultaBS);
+
+	}
+
+	public function VerAnio(){
+
+		$consultaBS= "SELECT nombre_corto as ID, nombre_corto as Nombre FROM configuracion_detalle WHERE codigo_tabla ='_ANIO' AND estado='ACTI' ORDER BY codigo_item DESC";
+		return $this->con->query($consultaBS);
+
+	}
  	
  	public function VerClientes(){
 

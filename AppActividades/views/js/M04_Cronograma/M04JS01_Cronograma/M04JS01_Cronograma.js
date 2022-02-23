@@ -13,7 +13,7 @@ function Control() {
     ValidarPerfil();
     LlenarFechas();
     ListarActividadesDiarias();
-    ListarActividadesDiariasReporte();
+    //ListarActividadesDiariasReporte();
     LlenarTipoActividad();
 
 
@@ -65,7 +65,7 @@ function Control() {
 
     $('#bxAreaParticipantes').change(function() {
         $("#bxParticipantes").val("");
-        var url = '../../models/M01_Actividades/M01MD01_Actividades/M01MD04_ListarActividades.php';
+        var url = '../../models/M04_Cronograma/M04MD01_Cronograma/M04MD04_ListarActividades.php';
         var datos = {
             "ReturnListaParticipantes": true,
             "area": $('#bxAreaParticipantes').val()
@@ -148,7 +148,7 @@ function ListarActividadesDiarias() {
         ],
         "pageLength": 10, // default record count per page,
         "ajax": {
-            "url": "../../models/M01_Actividades/M01MD01_Actividades/M01MD01_Actividades.php", // ajax source
+            "url": "../../models/M04_Cronograma/M04MD01_Cronograma/M04MD01_Actividades.php", // ajax source
             "type": "POST",
             "error": validarErrorGrilla,
             "data": function(d) {
@@ -217,7 +217,7 @@ function ListarActividadesDiariasReporte() {
         ],
         "pageLength": 1000000000, // default record count per page,
         "ajax": {
-            "url": "../../models/M01_Actividades/M01MD01_Actividades/M01MD01_Actividades.php", // ajax source
+            "url": "../../models/M04_Cronograma/M04MD01_Cronograma/M04MD01_Actividades.php", // ajax source
             "type": "POST",
             "error": validarErrorGrilla,
             "data": function(d) {
@@ -265,7 +265,7 @@ function ListarActividadesDiariasReporte() {
 
 function LlenarTipoActividad(){
     document.getElementById('bxTipoActividad').selectedIndex = 0;
-    var url = '../../models/M01_Actividades/M01MD01_Actividades/M01MD03_ListarTiposActividad.php';
+    var url = '../../models/M04_Cronograma/M04MD01_Cronograma/M04MD03_ListarTiposActividad.php';
     var datos = {
         "btnListarTiposActividad": true
     }
@@ -274,7 +274,7 @@ function LlenarTipoActividad(){
 
 function LlenarResponsables(){
     document.getElementById('bxTipoActividad').selectedIndex = 0;
-    var url = '../../models/M01_Actividades/M01MD01_Actividades/M01MD03_ListarTiposActividad.php';
+    var url = '../../models/M04_Cronograma/M04MD01_Cronograma/M04MD03_ListarTiposActividad.php';
     var datos = {
         "btnListarResponsables": true
     }
@@ -283,16 +283,26 @@ function LlenarResponsables(){
 
 function LlenarResponsablesPopup(){
     document.getElementById('bxResponsable').selectedIndex = 0;
-    var url = '../../models/M01_Actividades/M01MD01_Actividades/M01MD03_ListarTiposActividad.php';
+    var url = '../../models/M04_Cronograma/M04MD01_Cronograma/M04MD03_ListarTiposActividad.php';
     var datos = {
         "btnListarResponsables": true
     }
     llenarCombo(url, datos, "bxResponsable");
 }
 
+function LlenarResponsablesComent(){
+    document.getElementById('bxResponsableComent').selectedIndex = 0;
+    var url = '../../models/M04_Cronograma/M04MD01_Cronograma/M04MD03_ListarTiposActividad.php';
+    var datos = {
+        "btnListarResponsables": true
+    }
+    llenarCombo(url, datos, "bxResponsableComent");
+}
+
+
 function LlenarFiltroResponsables(){
     document.getElementById('bxfiltroResponsable').selectedIndex = 0;
-    var url = '../../models/M01_Actividades/M01MD01_Actividades/M01MD03_ListarTiposActividad.php';
+    var url = '../../models/M04_Cronograma/M04MD01_Cronograma/M04MD03_ListarTiposActividad.php';
     var datos = {
         "btnListarFiltroResponsables": true
     }
@@ -302,16 +312,25 @@ function LlenarFiltroResponsables(){
 
 function LlenarTipoActividadPopup(){
     document.getElementById('bxNombreActividadPopup').selectedIndex = 0;
-    var url = '../../models/M01_Actividades/M01MD01_Actividades/M01MD03_ListarTiposActividad.php';
+    var url = '../../models/M04_Cronograma/M04MD01_Cronograma/M04MD03_ListarTiposActividad.php';
     var datos = {
         "btnListarTiposActividadPopup": true
     }
     llenarCombo(url, datos, "bxNombreActividadPopup");
 }
 
+function LlenarTipoActividadComent(){
+    document.getElementById('bxNombreActividadComent').selectedIndex = 0;
+    var url = '../../models/M04_Cronograma/M04MD01_Cronograma/M04MD03_ListarTiposActividad.php';
+    var datos = {
+        "btnListarTiposActividadPopup": true
+    }
+    llenarCombo(url, datos, "bxNombreActividadComent");
+}
+
 function LlenarNombresActividadTarea(){
     document.getElementById('bxNombreActividadTarea').selectedIndex = 0;
-    var url = '../../models/M01_Actividades/M01MD01_Actividades/M01MD03_ListarTiposActividad.php';
+    var url = '../../models/M04_Cronograma/M04MD01_Cronograma/M04MD03_ListarTiposActividad.php';
     var datos = {
         "btnListarTiposActividadTarea": true
     }
@@ -350,7 +369,7 @@ function Registrar() {
     };
     $.ajax({
         type: "POST",
-        url: "../../models/M01_Actividades/M01MD01_Actividades/M01MD02_RegistrarActividad.php",
+        url: "../../models/M04_Cronograma/M04MD01_Cronograma/M04MD02_RegistrarActividad.php",
         data: data,
         dataType: "json",
         success: function (dato) {
@@ -395,7 +414,7 @@ function Limpiar(){
 /******************************************LISTAR BUSQUEDA CABECERA**************************************** */
 function BuscarActividadesGenerados() {
     bloquearPantalla("Buscando...");
-    var url = "../../models/M01_Actividades/M01MD01_Actividades/M01MD04_ListarActividades.php";
+    var url = "../../models/M04_Cronograma/M04MD01_Cronograma/M04MD04_ListarActividades.php";
     var dato = {
         "ReturnListaActividades": true,
         "txtfiltroFecInicio": $("#txtfiltroFecInicio").val(),
@@ -537,7 +556,7 @@ function LlenarTablaActividadesGeneradosReporte() {
         ],
         "pageLength": 1000000000, // default record count per page,
         "ajax": {
-            "url": "../../models/M01_Actividades/M01MD01_Actividades/M01MD04_ListarActividades.php", // ajax source
+            "url": "../../models/M04_Cronograma/M04MD01_Cronograma/M04MD04_ListarActividades.php", // ajax source
             "type": "POST",
             "error": validarErrorGrilla,
             "data": function(d) {
@@ -650,7 +669,7 @@ function InicializarAtributosTablaBusquedaCabActividades() {
 
 function BuscarTareasGenerado(codigo) {
     bloquearPantalla("Buscando...");
-    var url = "../../models/M01_Actividades/M01MD01_Actividades/M01MD04_ListarActividades.php";
+    var url = "../../models/M04_Cronograma/M04MD01_Cronograma/M04MD04_ListarActividades.php";
     var dato = {
         "ReturnListaTareas": true,
         "Codigo": codigo
@@ -740,7 +759,7 @@ function AbrirModalRegistroActualizar(id) {
     };
     $.ajax({
         type: "POST",
-        url: "../../models/M01_Actividades/M01MD01_Actividades/M01MD05_Procesos.php",
+        url: "../../models/M04_Cronograma/M04MD01_Cronograma/M04MD05_Procesos.php",
         data: data,
         dataType: "json",
         success: function(dato) {
@@ -805,7 +824,7 @@ function GuardarPopup() {
     };
     $.ajax({
         type: "POST",
-        url: "../../models/M01_Actividades/M01MD01_Actividades/M01MD05_Procesos.php",
+        url: "../../models/M04_Cronograma/M04MD01_Cronograma/M04MD05_Procesos.php",
         data: data,
         dataType: "json",
         success: function (dato) {
@@ -850,7 +869,7 @@ function AbrirModalTareas(id) {
     };
     $.ajax({
         type: "POST",
-        url: "../../models/M01_Actividades/M01MD01_Actividades/M01MD05_Procesos.php",
+        url: "../../models/M04_Cronograma/M04MD01_Cronograma/M04MD05_Procesos.php",
         data: data,
         dataType: "json",
         success: function(dato) {
@@ -884,7 +903,7 @@ function AbrirModalTareas(id) {
 
 function BuscarTareasPopup(id) {
     bloquearPantalla("Cargando...");
-    var url = "../../models/M01_Actividades/M01MD01_Actividades/M01MD06_ListarTareas.php";
+    var url = "../../models/M04_Cronograma/M04MD01_Cronograma/M04MD06_ListarTareas.php";
     var dato = {
         "ListarTareas": true,
         "txtIDActividadTareas": id
@@ -988,7 +1007,7 @@ function AbrirModalEditarTareas(id) {
     };
     $.ajax({
         type: "POST",
-        url: "../../models/M01_Actividades/M01MD01_Actividades/M01MD05_Procesos.php",
+        url: "../../models/M04_Cronograma/M04MD01_Cronograma/M04MD05_Procesos.php",
         data: data,
         dataType: "json",
         success: function(dato) {
@@ -1041,7 +1060,7 @@ function GuardarTareaPopup() {
     };
     $.ajax({
         type: "POST",
-        url: "../../models/M01_Actividades/M01MD01_Actividades/M01MD05_Procesos.php",
+        url: "../../models/M04_Cronograma/M04MD01_Cronograma/M04MD05_Procesos.php",
         data: data,
         dataType: "json",
         success: function (dato) {
@@ -1086,7 +1105,7 @@ function EditarTareaPopup() {
     };
     $.ajax({
         type: "POST",
-        url: "../../models/M01_Actividades/M01MD01_Actividades/M01MD05_Procesos.php",
+        url: "../../models/M04_Cronograma/M04MD01_Cronograma/M04MD05_Procesos.php",
         data: data,
         dataType: "json",
         success: function (dato) {
@@ -1116,7 +1135,7 @@ function EditarTareaPopup() {
 
 function ListarResponsablesTarea(idact){
     document.getElementById('bxResponsableTarea').selectedIndex = 0;
-    var url = '../../models/M01_Actividades/M01MD01_Actividades/M01MD03_ListarTiposActividad.php';
+    var url = '../../models/M04_Cronograma/M04MD01_Cronograma/M04MD03_ListarTiposActividad.php';
     var datos = {
         "btnListarResponsablesTarea": true,
         "idactividad": idact
@@ -1127,7 +1146,7 @@ function ListarResponsablesTarea(idact){
 
 function ListarResponsablesTarea2(ida){
     document.getElementById('bxResponsableTarea2').selectedIndex = 0;
-    var url = '../../models/M01_Actividades/M01MD01_Actividades/M01MD03_ListarTiposActividad.php';
+    var url = '../../models/M04_Cronograma/M04MD01_Cronograma/M04MD03_ListarTiposActividad.php';
     var datos = {
         "btnListarResponsablesTareaEditar": true,
         "idactividad": ida
@@ -1150,7 +1169,7 @@ function EliminarTarea(idtarea){
     };
     $.ajax({
         type: "POST",
-        url: "../../models/M01_Actividades/M01MD01_Actividades/M01MD05_Procesos.php",
+        url: "../../models/M04_Cronograma/M04MD01_Cronograma/M04MD05_Procesos.php",
         data: data,
         dataType: "json",
         success: function (dato) {
@@ -1192,7 +1211,7 @@ function AbrirModalParticipantes(id) {
     };
     $.ajax({
         type: "POST",
-        url: "../../models/M01_Actividades/M01MD01_Actividades/M01MD05_Procesos.php",
+        url: "../../models/M04_Cronograma/M04MD01_Cronograma/M04MD05_Procesos.php",
         data: data,
         dataType: "json",
         success: function(dato) {
@@ -1224,7 +1243,7 @@ function AbrirModalParticipantes(id) {
 
 function BuscarParticipantesPopup(id) {
     bloquearPantalla("Cargando...");
-    var url = "../../models/M01_Actividades/M01MD01_Actividades/M01MD07_ListarParticipantes.php";
+    var url = "../../models/M04_Cronograma/M04MD01_Cronograma/M04MD07_ListarParticipantes.php";
     var dato = {
         "ListarParticipantes": true,
         "idactividadPart": id
@@ -1293,7 +1312,7 @@ function RegistrarParticipantesPopup() {
     };
     $.ajax({
         type: "POST",
-        url: "../../models/M01_Actividades/M01MD01_Actividades/M01MD05_Procesos.php",
+        url: "../../models/M04_Cronograma/M04MD01_Cronograma/M04MD05_Procesos.php",
         data: data,
         dataType: "json",
         success: function (dato) {
@@ -1328,7 +1347,7 @@ function AbrirModalEliminar(id){
     };
     $.ajax({
         type: "POST",
-        url: "../../models/M01_Actividades/M01MD01_Actividades/M01MD05_Procesos.php",
+        url: "../../models/M04_Cronograma/M04MD01_Cronograma/M04MD05_Procesos.php",
         data: data,
         dataType: "json",
         success: function (dato) {
@@ -1360,7 +1379,7 @@ function EliminarParticipante(idpart){
     };
     $.ajax({
         type: "POST",
-        url: "../../models/M01_Actividades/M01MD01_Actividades/M01MD05_Procesos.php",
+        url: "../../models/M04_Cronograma/M04MD01_Cronograma/M04MD05_Procesos.php",
         data: data,
         dataType: "json",
         success: function (dato) {
@@ -1398,7 +1417,7 @@ function AbrirModalEliminarActividad(id){
     };
     $.ajax({
         type: "POST",
-        url: "../../models/M01_Actividades/M01MD01_Actividades/M01MD05_Procesos.php",
+        url: "../../models/M04_Cronograma/M04MD01_Cronograma/M04MD05_Procesos.php",
         data: data,
         dataType: "json",
         success: function(dato) {
@@ -1430,7 +1449,7 @@ function AbrirModalEliminarActividad(id){
 
 function LlenarTipoActividadEliminar(){
     document.getElementById('bxNombreActivi').selectedIndex = 0;
-    var url = '../../models/M01_Actividades/M01MD01_Actividades/M01MD03_ListarTiposActividad.php';
+    var url = '../../models/M04_Cronograma/M04MD01_Cronograma/M04MD03_ListarTiposActividad.php';
     var datos = {
         "btnListarTiposActividad": true
     }
@@ -1447,7 +1466,7 @@ function VerificarEliminarActividad(){
     };
     $.ajax({
         type: "POST",
-        url: "../../models/M01_Actividades/M01MD01_Actividades/M01MD05_Procesos.php",
+        url: "../../models/M04_Cronograma/M04MD01_Cronograma/M04MD05_Procesos.php",
         data: data,
         dataType: "json",
         success: function (dato) {
@@ -1481,7 +1500,7 @@ function EliminarActividad(idact){
     };
     $.ajax({
         type: "POST",
-        url: "../../models/M01_Actividades/M01MD01_Actividades/M01MD05_Procesos.php",
+        url: "../../models/M04_Cronograma/M04MD01_Cronograma/M04MD05_Procesos.php",
         data: data,
         dataType: "json",
         success: function (dato) {
@@ -1521,7 +1540,7 @@ function AbrirModalFinalizarActividad(id){
     };
     $.ajax({
         type: "POST",
-        url: "../../models/M01_Actividades/M01MD01_Actividades/M01MD05_Procesos.php",
+        url: "../../models/M04_Cronograma/M04MD01_Cronograma/M04MD05_Procesos.php",
         data: data,
         dataType: "json",
         success: function(dato) {
@@ -1552,7 +1571,7 @@ function FinalizarActividad(idact){
     };
     $.ajax({
         type: "POST",
-        url: "../../models/M01_Actividades/M01MD01_Actividades/M01MD05_Procesos.php",
+        url: "../../models/M04_Cronograma/M04MD01_Cronograma/M04MD05_Procesos.php",
         data: data,
         dataType: "json",
         success: function (dato) {
@@ -1579,220 +1598,7 @@ function FinalizarActividad(idact){
     });
 }
 
-/******************************* COMENTARIOS ACTIVIDADES *******************************/
 
-function LlenarResponsablesComent(){
-    document.getElementById('bxResponsableComent').selectedIndex = 0;
-    var url = '../../models/M01_Actividades/M01MD01_Actividades/M01MD03_ListarTiposActividad.php';
-    var datos = {
-        "btnListarResponsables": true
-    }
-    llenarCombo(url, datos, "bxResponsableComent");
-}
-
-function LlenarTipoActividadComent(){
-    document.getElementById('bxNombreActividadComent').selectedIndex = 0;
-    var url = '../../models/M01_Actividades/M01MD01_Actividades/M01MD03_ListarTiposActividad.php';
-    var datos = {
-        "btnListarTiposActividadPopup": true
-    }
-    llenarCombo(url, datos, "bxNombreActividadComent");
-}
-
-function AbrirModalComentariosActividades(id){
-   LlenarTipoActividadComent();
-   LlenarResponsablesComent();
-   //$('#modalComentariosActividad').modal('show');
-   
-   bloquearPantalla("Buscando...");
-    var data = {
-        "btnCargarComentariosActividad": true,
-        "IdRegistro": id
-    };
-    $.ajax({
-        type: "POST",
-        url: "../../models/M01_Actividades/M01MD01_Actividades/M01MD05_Procesos.php",
-        data: data,
-        dataType: "json",
-        success: function(dato) {
-            desbloquearPantalla();
-            if (dato.status == "ok") {
-                var resultado = dato.data;
-
-                $("#txtIDActividadComentarios").val(resultado.id);
-                $("#bxNombreActividadComent").val(resultado.nombre);
-                $("#txtDescripcionComent").val(resultado.descripcion);
-                $("#bxResponsableComent").val(resultado.responsable);
-                $("#txtFechaInicioComent").val(resultado.fechaini);
-                $("#txtFechaTerminoComent").val(resultado.fechafin);
-                $("#txtHoraInicioComent").val(resultado.Horaini);
-                $("#txtMinutosInicioComent").val(resultado.Minutosini);
-                $("#txtHoraTerminoComent").val(resultado.Horafin);
-                $("#txtMinutosTerminoComent").val(resultado.Minutosfin);
-                $("#bxEstadoComent").val(resultado.estado);
-
-                $('#modalComentariosActividad').modal('show');
-                showComments();
-                return;
-
-            } else {
-                mensaje_alerta("¡IMPORTANTE!", dato.data, "info");
-            }
-        },
-        error: function(error) {
-            console.log(error);
-            desbloquearPantalla();
-        },
-        timeout: timeoutDefecto
-    });
-}
-/****** FUNCION INGRESO COMENTARIOS ******/
-$(document).ready(function(){ 
-
-	showComments();
-	$('#commentForm').on('submit', function(event){
-		event.preventDefault();
-		var formData = $(this).serialize();
-		$.ajax({
-			url: "../../models/M01_Actividades/M01MD01_Actividades/M01MD08_ComentariosActividades.php",
-			method: "POST",
-			data: formData,
-			dataType: "JSON",
-			success:function(response) {
-				if(!response.error){
-					//$("#txtIDActividadComentarios").val(response.id);
-					$('#commentForm')[0].reset();
-					$('#message').html(response.message);
-					showComments();
-				}else if(response.error){
-					$('#message').html(response.message);
-				}
-			}
-		})
-	});
-
-});
-/**** FUNCIÓN PARA MOSTRAR COMENTARIO ****/
-function showComments(){
-    var data = {
-        "idActividad": $("#txtIDActividadComentarios").val()
-    };
-	$.ajax({
-        type: "POST",
-		url: "../../models/M01_Actividades/M01MD01_Actividades/M01MD09_ViewsComentAct.php",
-        data: data,
-		success:function(response) {
-            //console.log(response);
-			$('#showComments').html(response);
-		}
-	})
-}
-/******************************* COMENTARIOS ACTIVIDADES *******************************/
-
-
-/********************************** COMENTARIOS TAREAS *********************************/
-
-function LlenarNombresComentariosTarea(){
-    document.getElementById('txtNombreTareaComent').selectedIndex = 0;
-    var url = '../../models/M01_Actividades/M01MD01_Actividades/M01MD03_ListarTiposActividad.php';
-    var datos = {
-        "btnListarTiposActividadTarea": true
-    }
-    llenarCombo(url, datos, "txtNombreTareaComent");
-}
-
-function LlenarResponsablesComentTarea(){
-    document.getElementById('bxResponsableTareaComent').selectedIndex = 0;
-    var url = '../../models/M01_Actividades/M01MD01_Actividades/M01MD03_ListarTiposActividad.php';
-    var datos = {
-        "btnListarResponsables": true
-    }
-    llenarCombo(url, datos, "bxResponsableTareaComent");
-}
-
-function AbrirModalComentariosTareas(id){
-	LlenarNombresComentariosTarea();
-	LlenarResponsablesComentTarea();
-
-   
-	bloquearPantalla("Buscando...");
-    var data = {
-        "btnCargarComentariosTareas": true,
-        "IdRegistro": id
-    };
-    $.ajax({
-        type: "POST",
-        url: "../../models/M01_Actividades/M01MD01_Actividades/M01MD05_Procesos.php",
-        data: data,
-        dataType: "json",
-        success: function(dato) {
-            desbloquearPantalla();
-            if (dato.status == "ok") {
-                var resultado = dato.data;
-
-                $("#txtIDTareasComentarios").val(resultado.id);
-                $("#txtNombreTareaComent").val(resultado.nombre);
-                $("#txtFechaInicioTareaComent").val(resultado.fechaini);
-                $("#txtFechaTerminoTareaComent").val(resultado.fechafin);
-                $("#txtHoraInicioTareaComent").val(resultado.Horaini);
-                $("#txtMinutosInicioTareaComent").val(resultado.Minutosini);
-                $("#txtHoraTerminoTareaComent").val(resultado.Horafin);
-                $("#txtMinutosTerminoTareaComent").val(resultado.Minutosfin);
-                $("#txtDescripcionTareaComent").val(resultado.descripcion);
-                $("#bxEstadoTareaComent").val(resultado.estado);
-                $("#bxResponsableTareaComent").val(resultado.responsable);
-
-                $('#modalComentariosTareas').modal('show');
-                return;
-
-            } else {
-                mensaje_alerta("¡IMPORTANTE!", dato.data, "info");
-            }
-        },
-        error: function(error) {
-            console.log(error);
-            desbloquearPantalla();
-        },
-        timeout: timeoutDefecto
-    });
-}
-
-/****** FUNCION INGRESO COMENTARIOS TAREAS ******/
-$(document).ready(function(){ 
-	ViewsCommentsTareas();
-	$('#commentFormTareas').on('submit', function(event){
-		event.preventDefault();
-		var formData = $(this).serialize();
-		$.ajax({
-			url: "../../models/M01_Actividades/M01MD01_Actividades/M01MD10_ComentariosTareas.php",
-			method: "POST",
-			data: formData,
-			dataType: "JSON",
-			success:function(response) {
-				if(!response.error){
-					$('#commentFormTareas')[0].reset();
-					$('#message').html(response.message);
-					ViewsCommentsTareas();
-				}else if(response.error){
-					$('#message').html(response.message);
-				}
-			}
-		})
-	});
-
-});
-/**** FUNCIÓN PARA MOSTRAR COMENTARIO TAREAS ****/
-function ViewsCommentsTareas(){
-	$.ajax({
-		url: "../../models/M01_Actividades/M01MD01_Actividades/M01MD11_ViewsComentTareas.php",
-		method: "POST",
-		success:function(response) {
-			$('#ViewsCommentsTareas').html(response);
-		}
-	})
-}
-
-/********************************** COMENTARIOS TAREAS *********************************/
 
 /************************************-------------  BOTON DE CERRAR SESION ---------------**********************/
 
@@ -1813,7 +1619,7 @@ function ValidarPerfil(){
     };
     $.ajax({
         type: "POST",
-        url: "../../models/M01_Actividades/M01MD01_Actividades/validar_perfil.php",
+        url: "../../models/M04_Cronograma/M04MD01_Cronograma/va4idar_perfil.php",
         data: data,
         dataType: "json",
         success: function (dato) {

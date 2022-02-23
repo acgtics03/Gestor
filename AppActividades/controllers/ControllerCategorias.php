@@ -13,6 +13,28 @@
 		{
 			$this->mo = new get_categorias();
 		}
+
+		public function VerTipoCarpeta(){
+			return $this->mo->VerTipoCarpeta()->fetchAll();
+		}
+
+		public function VerTiempoEjecutar(){
+			return $this->mo->VerTiempoEjecutar()->fetchAll();
+		}
+
+
+		public function VerTipoGeneracion(){
+			return $this->mo->VerTipoGeneracion()->fetchAll();
+		}
+
+
+		public function VerMes(){
+			return $this->mo->VerMes()->fetchAll();
+		}
+
+		public function VerAnio(){
+			return $this->mo->VerAnio()->fetchAll();
+		}
 		
 		public function VerClientes(){
 			return $this->mo->VerClientes()->fetchAll();
